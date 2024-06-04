@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title>我的第一篇博客</title>
-      <link href="/2024/04/25/wo-de-di-yi-pian-bo-ke/"/>
-      <url>/2024/04/25/wo-de-di-yi-pian-bo-ke/</url>
+      <title>蓝桥杯</title>
+      <link href="/2024/06/01/lan-qiao-bei/"/>
+      <url>/2024/06/01/lan-qiao-bei/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h2 id="蓝桥杯"><a href="#蓝桥杯" class="headerlink" title="蓝桥杯"></a>蓝桥杯</h2><p><strong>从刚开始报考的时候，觉着自己能拿个省一就心满意足了，当时认为拿个省一非常困难，毕竟在蓝桥杯a组，同台选手都比较厉害，但是到最后考试的时候，发现其实题目并不是特别的难，当然还有自己不会写的题，让我感到意外的是省赛的题对算法考察的并不是特别多，也就是如果对一些常见的题型比较熟悉，并且积累足够的代码量，基本就可以拿个省一，毕竟这个获奖比例确实挺高的😄😄。</strong><br><strong>考完省赛后，爽完了半个月，在五一期间还和同学一起去洛阳玩了4天，天天吃好吃的😄。</strong><br><strong>五月中旬花了一个星期的时间备考国赛，不过国赛题真难啊，尤其是第13届a组那一套题，看了半天就会写出来一道签到题，其他的都不会写，非常打击自信心。到了最后一个星期，我本打算再复习冲刺一波，于是我复习一遍之前做过的几套题，没想到写完一遍之后还是有很多题不会写。就这样破罐子破摔吧，我直接和室友狂打一个星期的永劫无间征神之路，我用的是岳山，战马刀伤害贼高，嘎嘎乱杀。最后国赛的时候，感觉写的还不错，会写的都写上了，部分题也能混几分，唯一遗憾的是到最后十分钟的时候发现有一道简单的15分的题被我忽略了，我一开始是写完第一道大题，看了半天第二道大题，就直接从后面开始写了，没想到最后隔了一道挺简单的一道题，好像是关于求满足一个公式的最大长度什么的，没时间码出来了😭。最后拿了个国优秀奖，还是挺满意的。</strong></p>]]></content>
       
       
       
@@ -17,11 +17,11 @@
     
     
     <entry>
-      <title>Hello World</title>
-      <link href="/2024/04/22/hello-world/"/>
-      <url>/2024/04/22/hello-world/</url>
+      <title>我的第一篇博客</title>
+      <link href="/2024/04/25/wo-de-di-yi-pian-bo-ke/"/>
+      <url>/2024/04/25/wo-de-di-yi-pian-bo-ke/</url>
       
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+        <content type="html"><![CDATA[]]></content>
       
       
       
