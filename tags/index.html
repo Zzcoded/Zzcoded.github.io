@@ -454,6 +454,7 @@
             <span id="sitetime">载入运行时间...</span>
             <script>
                 function siteTime() {
+					setTimeout(siteTime, 1000);
                     var seconds = 1000;
                     var minutes = seconds * 60;
                     var hours = minutes * 60;
@@ -492,7 +493,7 @@
                             " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
                     }
                 }
-                setInterval(siteTime, 1000);
+                setTimeout(siteTime, 1000);
             </script>
             
             <br>
@@ -549,6 +550,7 @@
         }
     });
 </script>
+
 
 
     <!-- 搜索遮罩框 -->
