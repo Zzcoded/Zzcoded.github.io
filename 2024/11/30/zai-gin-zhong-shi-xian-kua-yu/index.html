@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="15届蓝桥杯, Zzcat">
+    <meta name="keywords" content="在Gin中实现跨域, Zzcat">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>15届蓝桥杯 | Zzcat</title>
+    <title>在Gin中实现跨域 | Zzcat</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -312,12 +312,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">15届蓝桥杯</h1>
+                    <h1 class="description center-align post-title">在Gin中实现跨域</h1>
                 </div>
             </div>
         </div>
@@ -433,12 +433,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%BB%8F%E5%8E%86/">
-                                <span class="chip bg-color">经历</span>
+                            <a href="/tags/Go/">
+                                <span class="chip bg-color">Go</span>
                             </a>
                         
-                            <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/">
-                                <span class="chip bg-color">蓝桥杯</span>
+                            <a href="/tags/Gin/">
+                                <span class="chip bg-color">Gin</span>
                             </a>
                         
                     </div>
@@ -449,8 +449,12 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%BB%8F%E5%8E%86/" class="post-category">
-                                经历
+                            <a href="/categories/Go/" class="post-category">
+                                Go
+                            </a>
+                        
+                            <a href="/categories/Go/Gin/" class="post-category">
+                                Gin
                             </a>
                         
                     </div>
@@ -462,28 +466,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2024-06-01
+                    2024-11-30
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-07-06
+                    2024-11-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    511
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -503,7 +507,67 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="蓝桥杯"><a href="#蓝桥杯" class="headerlink" title="蓝桥杯"></a>蓝桥杯</h2><p><strong>从刚开始报考的时候，觉着自己能拿个省一就心满意足了，当时认为拿个省一非常困难，毕竟在蓝桥杯a组，同台选手都比较厉害，但是到最后考试的时候，发现其实题目并不是特别的难，当然还有自己不会写的题，让我感到意外的是省赛的题对算法考察的并不是特别多，也就是如果对一些常见的题型比较熟悉，并且积累足够的代码量，基本就可以拿个省一，毕竟这个获奖比例确实挺高的😄😄。</strong><br><strong>考完省赛后，爽完了半个月，在五一期间还和同学一起去洛阳玩了4天，天天吃好吃的😄。</strong><br><strong>五月中旬花了一个星期的时间备考国赛，不过国赛题真难啊，尤其是第13届a组那一套题，看了半天就会写出来一道签到题，其他的都不会写，非常打击自信心。到了最后一个星期，我本打算再复习冲刺一波，于是我复习一遍之前做过的几套题，没想到写完一遍之后还是有很多题不会写。就这样破罐子破摔吧，我直接和室友狂打一个星期的永劫无间征神之路，我用的是岳山，战马刀伤害贼高，嘎嘎乱杀。最后国赛的时候，感觉写的还不错，会写的都写上了，部分题也能混几分，唯一遗憾的是到最后十分钟的时候发现有一道简单的15分的题被我忽略了，我一开始是写完第一道大题，看了半天第二道大题，就直接从后面开始写了，没想到最后隔了一道挺简单的一道题，好像是关于求满足一个公式的最大长度什么的，没时间码出来了😭。最后拿了个国优秀奖，还是挺满意的。</strong></p>
+                <h3 id="1-什么是CORS？"><a href="#1-什么是CORS？" class="headerlink" title="1. 什么是CORS？"></a>1. 什么是CORS？</h3><p><strong>跨域资源共享（CORS, Cross-Origin Resource Sharing）</strong> 是一种浏览器机制，允许受限资源（如字体、JavaScript等）在一个（源）下的网页被另一个域（源）的网页所请求。它是一种在浏览器中实现跨域请求的标准方式。</p>
+<p><strong>为什么需要CORS？</strong></p>
+<p>浏览器的<strong>同源策略（Same-Origin Policy）</strong>限制了网页从不同源加载资源，这是一种安全机制，防止恶意网站窃取敏感信息。然而，在现代Web开发中，前后端分离、微服务架构等需求使得跨域请求变得普遍，CORS为这种需求提供了标准化的解决方案。</p>
+<p>当构建Web应用程序时，可能需要在不同域之间进行数据交换，这就涉及到跨域资源共享（CORS）。在Gin框架中实现跨域是一个常见的需求。</p>
+<p>​	跨域资源共享（CORS）是一种浏览器安全机制，用于控制不同域之间的资源共享。在Gin中，你可以使用中间件来配置CORS策略，允许或拒绝特定的跨域请求。</p>
+<p>​	以下是在Gin中实现跨域的步骤：</p>
+<h3 id="2-导入Gin和CORS包"><a href="#2-导入Gin和CORS包" class="headerlink" title="2. 导入Gin和CORS包"></a><strong>2. 导入Gin和CORS包</strong></h3><p>​	首先，先确保已经安装了Gin和Cors的Go模块。可以使用以下命令安装</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> get -u github.com/gin-gonic/gin</span><br><span class="line"><span class="keyword">go</span> get -u github.com/gin-contrib/cors</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="3-创建一个Gin应用"><a href="#3-创建一个Gin应用" class="headerlink" title="3. 创建一个Gin应用"></a><strong>3. 创建一个Gin应用</strong></h3><p>在Go代码中，导入Gin和Cors模块并创建一个Gin应用：</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"github.com/gin-gonic/gin"</span></span><br><span class="line">    <span class="string">"github.com/gin-contrib/cors"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">    r := gin.Default()</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 使用CORS中间件</span></span><br><span class="line">    r.Use(cors.Default())</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 定义路由和处理程序</span></span><br><span class="line">    r.GET(<span class="string">"/hello"</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> {</span><br><span class="line">        c.JSON(<span class="number">200</span>, gin.H{</span><br><span class="line">            <span class="string">"message"</span>: <span class="string">"Hello, CORS!"</span>,</span><br><span class="line">        })</span><br><span class="line">    })</span><br><span class="line"></span><br><span class="line">    r.Run(<span class="string">":8080"</span>)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="4-配置CORS中间件"><a href="#4-配置CORS中间件" class="headerlink" title="4. 配置CORS中间件"></a><strong>4. 配置CORS中间件</strong></h3><p>在上面的代码中，通过使用<code>cors.Default()</code>中间件来启用CORS支持。这将允许来自任何源的GET，POST和OPTIONS请求，并允许特定的标头和方法。</p>
+<p>你还可以根据需要配置CORS中间件。例如，以下代码将限制跨域请求只能来自指定的域名：</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">  <span class="string">"time"</span></span><br><span class="line"></span><br><span class="line">  <span class="string">"github.com/gin-contrib/cors"</span></span><br><span class="line">  <span class="string">"github.com/gin-gonic/gin"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">  router := gin.Default()</span><br><span class="line">  <span class="comment">// CORS for https://foo.com and https://github.com origins, allowing:</span></span><br><span class="line">  <span class="comment">// - PUT and PATCH methods</span></span><br><span class="line">  <span class="comment">// - Origin header</span></span><br><span class="line">  <span class="comment">// - Credentials share</span></span><br><span class="line">  <span class="comment">// - Preflight requests cached for 12 hours</span></span><br><span class="line">  router.Use(cors.New(cors.Config{</span><br><span class="line">    AllowOrigins:     []<span class="type">string</span>{<span class="string">"https://foo.com"</span>},</span><br><span class="line">    AllowMethods:     []<span class="type">string</span>{<span class="string">"PUT"</span>, <span class="string">"PATCH"</span>},</span><br><span class="line">    AllowHeaders:     []<span class="type">string</span>{<span class="string">"Origin"</span>},</span><br><span class="line">    ExposeHeaders:    []<span class="type">string</span>{<span class="string">"Content-Length"</span>},</span><br><span class="line">    AllowCredentials: <span class="literal">true</span>,</span><br><span class="line">    AllowOriginFunc: <span class="function"><span class="keyword">func</span><span class="params">(origin <span class="type">string</span>)</span></span> <span class="type">bool</span> {</span><br><span class="line">      <span class="keyword">return</span> origin == <span class="string">"https://github.com"</span></span><br><span class="line">    },</span><br><span class="line">    MaxAge: <span class="number">12</span> * time.Hour,</span><br><span class="line">  }))</span><br><span class="line">  router.Run()</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>另一种使用方法：</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> router</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"github.com/gin-contrib/cors"</span></span><br><span class="line">    <span class="string">"github.com/gin-gonic/gin"</span></span><br><span class="line">    <span class="string">"time"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// SetupRouter 初始化并返回 Gin 引擎</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">SetupRouter</span><span class="params">()</span></span> *gin.Engine {</span><br><span class="line">    router := gin.Default()</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 使用 DefaultConfig 作为起点</span></span><br><span class="line">    corsConfig := cors.DefaultConfig()</span><br><span class="line">    corsConfig.AllowOrigins = []<span class="type">string</span>{<span class="string">"http://localhost:8080"</span>} <span class="comment">// 设置允许的源</span></span><br><span class="line">    corsConfig.AllowMethods = []<span class="type">string</span>{<span class="string">"GET"</span>, <span class="string">"POST"</span>, <span class="string">"PUT"</span>, <span class="string">"DELETE"</span>, <span class="string">"OPTIONS"</span>}</span><br><span class="line">    corsConfig.AllowHeaders = []<span class="type">string</span>{<span class="string">"Origin"</span>, <span class="string">"Content-Type"</span>, <span class="string">"Authorization"</span>}</span><br><span class="line">    corsConfig.AllowCredentials = <span class="literal">true</span></span><br><span class="line">    corsConfig.MaxAge = <span class="number">12</span> * time.Hour</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 应用自定义的 CORS 配置</span></span><br><span class="line">    router.Use(cors.New(corsConfig))</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 注册路由</span></span><br><span class="line">    RegisterAuthRoutes(router)</span><br><span class="line">    RegisterAPIRoutes(router)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> router</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="5-CORS配置参数详解"><a href="#5-CORS配置参数详解" class="headerlink" title="5. CORS配置参数详解"></a>5. CORS配置参数详解</h2><p>以下是<code>gin-contrib/cors</code>库中<code>cors.Config</code>结构体的主要字段及其作用：</p>
+<h3 id="5-1-AllowOrigins"><a href="#5-1-AllowOrigins" class="headerlink" title="5.1 AllowOrigins"></a>5.1 AllowOrigins</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AllowOrigins []string</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>说明：</strong> 指定允许的源（域名）。例如，<code>http://localhost:8080</code> 或 <code>https://yourdomain.com</code>。不建议在生产环境中使用<code>"*"</code>，因为它允许所有域名访问，存在安全风险。</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AllowOrigins: []string{"http://localhost:8080", "https://yourdomain.com"},</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="5-2-AllowOriginFunc"><a href="#5-2-AllowOriginFunc" class="headerlink" title="5.2 AllowOriginFunc"></a>5.2 AllowOriginFunc</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AllowOriginFunc func(origin string) bool</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>说明：</strong> 允许通过自定义函数来动态判断是否允许某个源。可以用于复杂的验证逻辑。</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">go复制代码AllowOriginFunc: func(origin string) bool {</span><br><span class="line">    return origin == "http://localhost:8080" || origin == "https://yourdomain.com"</span><br><span class="line">},</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="5-3-AllowMethods"><a href="#5-3-AllowMethods" class="headerlink" title="5.3 AllowMethods"></a>5.3 AllowMethods</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AllowMethods []string</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>说明：</strong> 指定允许的HTTP方法，如<code>GET</code>、<code>POST</code>、<code>PUT</code>、<code>DELETE</code>等。</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AllowMethods: []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="5-4-AllowHeaders"><a href="#5-4-AllowHeaders" class="headerlink" title="5.4 AllowHeaders"></a>5.4 AllowHeaders</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AllowHeaders []string</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>说明：</strong> 指定允许的请求头。例如，<code>Content-Type</code>、<code>Authorization</code>等。</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AllowHeaders: []string{"Origin", "Content-Type", "Authorization"},</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="5-5-ExposeHeaders"><a href="#5-5-ExposeHeaders" class="headerlink" title="5.5 ExposeHeaders"></a>5.5 ExposeHeaders</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ExposeHeaders []string</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>说明：</strong> 指定浏览器可以访问的响应头。例如，<code>Content-Length</code>。</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ExposeHeaders: []string{"Content-Length"},</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="5-6-AllowCredentials"><a href="#5-6-AllowCredentials" class="headerlink" title="5.6 AllowCredentials"></a>5.6 AllowCredentials</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AllowCredentials bool</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>说明：</strong> 是否允许发送凭证（如Cookie）。设置为<code>true</code>时，<code>Access-Control-Allow-Origin</code>不能为<code>"*"</code>，必须指定具体的源。</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AllowCredentials: true,</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="5-7-MaxAge"><a href="#5-7-MaxAge" class="headerlink" title="5.7 MaxAge"></a>5.7 MaxAge</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MaxAge time.Duration</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>说明：</strong> 预检请求的缓存时间，单位为秒或时间.Duration。浏览器会缓存预检请求的结果，减少后续相同请求的预检次数。</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MaxAge: 12 * time.Hour,</span><br></pre></td></tr></tbody></table></figure>
 
                 
             </div>
@@ -530,7 +594,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://Zzcoded.github.io/2024/06/01/15-lan-qiao-bei/">http://Zzcoded.github.io/2024/06/01/15-lan-qiao-bei/</a>
+                    <a href="http://Zzcoded.github.io/2024/11/30/zai-gin-zhong-shi-xian-kua-yu/">http://Zzcoded.github.io/2024/11/30/zai-gin-zhong-shi-xian-kua-yu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -568,12 +632,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%BB%8F%E5%8E%86/">
-                                    <span class="chip bg-color">经历</span>
+                                <a href="/tags/Go/">
+                                    <span class="chip bg-color">Go</span>
                                 </a>
                             
-                                <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/">
-                                    <span class="chip bg-color">蓝桥杯</span>
+                                <a href="/tags/Gin/">
+                                    <span class="chip bg-color">Gin</span>
                                 </a>
                             
                         </div>
@@ -1006,86 +1070,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2024/07/23/yolov5-bu-shu-liu-cheng/">
+                <a href="/2024/11/30/zai-gin-zhong-shi-xian-kua-yu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="yolov5部署全流程">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="在Gin中实现跨域">
                         
-                        <span class="card-title">yolov5部署全流程</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-07-23
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%BB%8F%E5%8E%86/" class="post-category">
-                                    经历
-                                </a>
-                            
-                            <a href="/categories/%E7%BB%8F%E5%8E%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" class="post-category">
-                                    计算机视觉
-                                </a>
-                            
-                            <a href="/categories/%E7%BB%8F%E5%8E%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="post-category">
-                                    环境配置
-                                </a>
-                            
-                            <a href="/categories/%E7%BB%8F%E5%8E%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/yolov/" class="post-category">
-                                    yolov
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/">
-                        <span class="chip bg-color">计算机视觉</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
-                        <span class="chip bg-color">环境配置</span>
-                    </a>
-                    
-                    <a href="/tags/yolov/">
-                        <span class="chip bg-color">yolov</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2024/06/01/15-lan-qiao-bei/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="15届蓝桥杯">
-                        
-                        <span class="card-title">15届蓝桥杯</span>
+                        <span class="card-title">在Gin中实现跨域</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1096,14 +1092,18 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-06-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-11-30
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%BB%8F%E5%8E%86/" class="post-category">
-                                    经历
+                            <a href="/categories/Go/" class="post-category">
+                                    Go
+                                </a>
+                            
+                            <a href="/categories/Go/Gin/" class="post-category">
+                                    Gin
                                 </a>
                             
                             
@@ -1114,12 +1114,81 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%BB%8F%E5%8E%86/">
-                        <span class="chip bg-color">经历</span>
+                    <a href="/tags/Go/">
+                        <span class="chip bg-color">Go</span>
                     </a>
                     
-                    <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/">
-                        <span class="chip bg-color">蓝桥杯</span>
+                    <a href="/tags/Gin/">
+                        <span class="chip bg-color">Gin</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/10/13/ji-yu-qt-mysql-socket-shi-xian-ben-di-ju-yu-wang-tong-xun/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="基于Qt+MySql+Socket实现本地通讯">
+                        
+                        <span class="card-title">基于Qt+MySql+Socket实现本地通讯</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-10-13
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Qt/" class="post-category">
+                                    Qt
+                                </a>
+                            
+                            <a href="/categories/Qt/MySql/" class="post-category">
+                                    MySql
+                                </a>
+                            
+                            <a href="/categories/Qt/MySql/TcpSocket/" class="post-category">
+                                    TcpSocket
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Qt/">
+                        <span class="chip bg-color">Qt</span>
+                    </a>
+                    
+                    <a href="/tags/MySql/">
+                        <span class="chip bg-color">MySql</span>
+                    </a>
+                    
+                    <a href="/tags/TcpSocket/">
+                        <span class="chip bg-color">TcpSocket</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%A4%9A%E7%94%A8%E6%88%B7%E5%8D%B3%E6%97%B6%E9%80%9A%E8%AE%AF/">
+                        <span class="chip bg-color">多用户即时通讯</span>
                     </a>
                     
                 </div>
