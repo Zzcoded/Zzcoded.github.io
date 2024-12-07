@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="基于Qt+MySql+Socket实现本地通讯, Zzcat">
+    <meta name="keywords" content="配置IP地址时network 和networkmanager冲突, Zzcat">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>基于Qt+MySql+Socket实现本地通讯 | Zzcat</title>
+    <title>配置IP地址时network 和networkmanager冲突 | Zzcat</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -312,12 +312,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">基于Qt+MySql+Socket实现本地通讯</h1>
+                    <h1 class="description center-align post-title">配置IP地址时network 和networkmanager冲突</h1>
                 </div>
             </div>
         </div>
@@ -433,20 +433,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Qt/">
-                                <span class="chip bg-color">Qt</span>
+                            <a href="/tags/Centos/">
+                                <span class="chip bg-color">Centos</span>
                             </a>
                         
-                            <a href="/tags/MySql/">
-                                <span class="chip bg-color">MySql</span>
-                            </a>
-                        
-                            <a href="/tags/TcpSocket/">
-                                <span class="chip bg-color">TcpSocket</span>
-                            </a>
-                        
-                            <a href="/tags/%E5%A4%9A%E7%94%A8%E6%88%B7%E5%8D%B3%E6%97%B6%E9%80%9A%E8%AE%AF/">
-                                <span class="chip bg-color">多用户即时通讯</span>
+                            <a href="/tags/%E9%85%8D%E7%BD%AEIp%E5%9C%B0%E5%9D%80/">
+                                <span class="chip bg-color">配置Ip地址</span>
                             </a>
                         
                     </div>
@@ -457,16 +449,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Qt/" class="post-category">
-                                Qt
-                            </a>
-                        
-                            <a href="/categories/Qt/MySql/" class="post-category">
-                                MySql
-                            </a>
-                        
-                            <a href="/categories/Qt/MySql/TcpSocket/" class="post-category">
-                                TcpSocket
+                            <a href="/categories/Centos/" class="post-category">
+                                Centos
                             </a>
                         
                     </div>
@@ -478,28 +462,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2024-10-13
+                    2024-12-01
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-10-16
+                    2024-12-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.4k
+                    356
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    1 分
                 </div>
                 
 
@@ -519,245 +503,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="整体介绍"><a href="#整体介绍" class="headerlink" title="整体介绍"></a>整体介绍</h1><p>​		这个项目的初衷是用来学习Socket网络通讯，并练习基础的MySql语句，但因时间有限，只实现了基本通讯功能，主要分为注册账号，增添好友，和本地通讯三个功能。</p>
-<p>​		因作者实力有限，所以代码中可能会遇到一些bug，如果读者遇到不懂的地方可以通过博客里面的联系方式找我讨论或者在评论区提问，还因为作者的英语水平有限，所以代码中有些变量的命名存在拼写错误，比如账号account,但我通篇都是acount，后期发现了也没有精力去修改了，类似其他的问题都可以在评论区提出。本代码完全由本人和chatgpt合力完成，未有抄袭，任何人都可以直接拿来参考共同学习。</p>
-<h1 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h1><h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><p>项目是用C++写的，需要有Qt基础和MySql基础，该项目的目的在于简单了解TCP/IP协议内容，简单实现Socket通讯，和一些数据库语句的基本用法，里面还有很多bug，最终比较遗憾的是只实现了本地多人通讯，做的时候没有往局域网通讯的方向去想，导致做完之后发现客户端的权限太大了，只能实现本地通讯。由于后续又有其他的任务，就没有精力去完善了，所以该项目就算是给大家举了一个反面教材，希望大家之后在做客户端的时候注意只用写请求就行，不要和数据库等内容相关联。觉得做的比较满意的部分是用服务器实现了多人通讯，也就是一个人可以通过指定好友向服务器发送请求，然后服务器会处理请求，并做出回应，将信息传递给接收者。</p>
-<h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h2><p><img src="C:/Users/30566/AppData/Roaming/Typora/typora-user-images/image-20241016234807980.png" alt="image-20241016234807980"></p>
-<p><img src="C:/Users/30566/AppData/Roaming/Typora/typora-user-images/image-20241016234823553.png" alt="image-20241016234823553"></p>
-<p><img src="C:/Users/30566/AppData/Roaming/Typora/typora-user-images/image-20241016234733080.png" alt="image-20241016234733080"></p>
-<h2 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h2><p><img src="https://files.oaiusercontent.com/file-vtBikKdZynBi7Puka6TAp2cK?se=2024-10-13T03:48:16Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscc=max-age=299,%20immutable,%20private&amp;rscd=attachment;%20filename=image.png&amp;sig=F0Hm13BPOK5m/4WdZB93GL0e5C6XOYJ+BzPwcIGSltE=" alt="已上传的图片"></p>
-<h3 id="各个文件的作用"><a href="#各个文件的作用" class="headerlink" title="各个文件的作用"></a>各个文件的作用</h3><h4 id="Headers（头文件）"><a href="#Headers（头文件）" class="headerlink" title="Headers（头文件）"></a>Headers（头文件）</h4><ul>
-<li><strong>addfrienddialog.h</strong>：<ul>
-<li>这个头文件声明了 <code>AddFriendDialog</code> 类，通常用于管理“添加好友”的对话框。</li>
-<li>可能包括用于输入好友账号、添加好友的按钮，以及处理输入和用户操作的接口声明。</li>
-</ul>
-</li>
-<li><strong>chatpage.h</strong>：<ul>
-<li>这个头文件声明了 <code>ChatPage</code> 类，通常用于表示一个聊天窗口，包含了聊天内容的展示、发送消息等功能。</li>
-<li>包括聊天界面的基本操作，比如发送和接收消息的功能。</li>
-</ul>
-</li>
-<li><strong>dialoglist.h</strong>：<ul>
-<li>这个头文件声明了 <code>DialogList</code> 类，通常用于管理当前用户的好友列表和会话窗口。</li>
-<li>包括显示好友列表的界面和管理与多个好友聊天的功能，允许用户选择好友并打开聊天窗口。</li>
-</ul>
-</li>
-<li><strong>signup.h</strong>：<ul>
-<li>这个头文件声明了 <code>Signup</code> 类，用于管理注册用户的界面。</li>
-<li>包含用户注册的相关接口，比如输入用户名、密码以及确认注册的逻辑。</li>
-</ul>
-</li>
-<li><strong>widget.h</strong>：<ul>
-<li>这个头文件声明了主窗口（<code>Widget</code> 类），通常是应用程序启动后的主界面。</li>
-<li>包括登录界面、注册按钮等初始操作的逻辑。</li>
-</ul>
-</li>
-</ul>
-<h4 id="Sources（源文件）"><a href="#Sources（源文件）" class="headerlink" title="Sources（源文件）"></a>Sources（源文件）</h4><ul>
-<li><strong>addfrienddialog.cpp</strong>：<ul>
-<li>这个源文件是 <code>addfrienddialog.h</code> 的实现部分，具体实现了添加好友对话框的功能。</li>
-<li>例如：处理用户输入好友账号后的确认、取消等按钮的逻辑，以及与好友系统的交互。</li>
-</ul>
-</li>
-<li><strong>chatpage.cpp</strong>：<ul>
-<li>这个源文件实现了 <code>chatpage.h</code> 中的声明，提供了聊天窗口的具体功能。</li>
-<li>包括发送消息、显示接收到的消息等实现，处理聊天界面的 UI 和消息逻辑。</li>
-</ul>
-</li>
-<li><strong>dialoglist.cpp</strong>：<ul>
-<li>这个源文件实现了 <code>dialoglist.h</code> 中的功能，主要用于管理好友列表和多对话窗口。</li>
-<li>包括加载好友列表、打开聊天窗口、响应服务器的消息、添加好友的逻辑等。</li>
-</ul>
-</li>
-<li><strong>main.cpp</strong>：<ul>
-<li>这个文件是程序的入口，通常包含 <code>main()</code> 函数。</li>
-<li>在这里会初始化应用程序，显示主窗口，并开始应用程序的事件循环。</li>
-</ul>
-</li>
-<li><strong>signup.cpp</strong>：<ul>
-<li>这个源文件是 <code>signup.h</code> 的实现部分，具体实现了注册窗口的功能。</li>
-<li>包括检查用户输入是否有效、注册到数据库等具体的逻辑。</li>
-</ul>
-</li>
-<li><strong>widget.cpp</strong>：<ul>
-<li>这个文件是 <code>widget.h</code> 的实现部分，用于实现主窗口的功能。</li>
-<li>包括初始化登录界面、用户输入处理以及登录、注册按钮的响应逻辑。</li>
-</ul>
-</li>
-</ul>
-<h4 id="Forms（UI-界面文件）"><a href="#Forms（UI-界面文件）" class="headerlink" title="Forms（UI 界面文件）"></a>Forms（UI 界面文件）</h4><ul>
-<li><strong>addfrienddialog.ui</strong>：<ul>
-<li>这个 <code>.ui</code> 文件定义了添加好友对话框的用户界面。</li>
-<li>包含输入好友账号的文本框、确认和取消的按钮等界面元素。</li>
-</ul>
-</li>
-<li><strong>chatpage.ui</strong>：<ul>
-<li>这个 <code>.ui</code> 文件定义了聊天窗口的用户界面。</li>
-<li>包含显示聊天记录的区域、输入消息的文本框、发送按钮等元素。</li>
-</ul>
-</li>
-<li><strong>dialoglist.ui</strong>：<ul>
-<li>这个 <code>.ui</code> 文件定义了好友列表的用户界面。</li>
-<li>包含显示当前用户所有好友的列表、选择好友进行聊天的按钮等界面元素。</li>
-</ul>
-</li>
-<li><strong>signup.ui</strong>：<ul>
-<li>这个 <code>.ui</code> 文件定义了用户注册界面。</li>
-<li>包含用户名、密码输入框，以及确认注册的按钮。</li>
-</ul>
-</li>
-<li><strong>widget.ui</strong>：<ul>
-<li>这个 <code>.ui</code> 文件定义了应用程序的主界面。</li>
-<li>通常用于登录界面，包含账号、密码输入框、登录按钮、注册按钮等。</li>
-</ul>
-</li>
-</ul>
-<h3 id="项目的整体功能描述"><a href="#项目的整体功能描述" class="headerlink" title="项目的整体功能描述"></a>项目的整体功能描述</h3><ul>
-<li><strong>Widget（主界面）</strong>：是程序的入口，包括登录和注册功能。</li>
-<li><strong>Signup（注册界面）</strong>：用于新用户的注册功能。</li>
-<li><strong>DialogList（好友列表界面）</strong>：在用户登录成功后，显示用户的好友列表，并允许用户与好友进行聊天。</li>
-<li><strong>ChatPage（聊天界面）</strong>：用户可以与好友发送和接收消息。</li>
-<li><strong>AddFriendDialog（添加好友对话框）</strong>：用于添加新好友的功能，输入好友的账号后请求添加。</li>
-</ul>
-<h3 id="项目工作流程"><a href="#项目工作流程" class="headerlink" title="项目工作流程"></a>项目工作流程</h3><p><strong>用户启动程序</strong>，首先看到的是登录界面（由 <code>widget</code> 类实现）。</p>
-<ul>
-<li>用户可以选择登录或注册。</li>
-<li>如果用户选择注册，则会转到 <code>Signup</code> 界面。</li>
-</ul>
-<p><strong>登录成功后</strong>，进入到 <code>DialogList</code> 界面，可以看到当前好友列表。</p>
-<ul>
-<li>可以选择某个好友，点击后打开对应的聊天窗口（<code>ChatPage</code>）。</li>
-<li>也可以通过“添加好友”按钮，打开 <code>AddFriendDialog</code> 对话框，添加新好友。</li>
-</ul>
-<p><strong>聊天窗口</strong>允许用户发送和接收消息，整个系统通过 <code>QTcpSocket</code> 与服务器通信来完成消息的收发。</p>
-<h2 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h2><p><img src="C:/Users/30566/AppData/Roaming/Typora/typora-user-images/image-20241013115547963.png" alt="image-20241013115547963"></p>
-<h3 id="各个文件的作用-1"><a href="#各个文件的作用-1" class="headerlink" title="各个文件的作用"></a>各个文件的作用</h3><h4 id="Headers（头文件）-1"><a href="#Headers（头文件）-1" class="headerlink" title="Headers（头文件）"></a>Headers（头文件）</h4><ul>
-<li><strong>chatserver.h：</strong><ul>
-<li>这个头文件声明了 <code>ChatServer</code> 类，它是服务器的核心部分，用于管理客户端连接、消息处理等。</li>
-<li>包含与客户端的连接管理、消息转发、登录验证等功能的声明。</li>
-</ul>
-</li>
-<li><strong>widget.h：</strong><ul>
-<li>这个头文件声明了 <code>Widget</code> 类，通常用于表示服务器的主窗口。</li>
-<li>主要是服务器界面的基本操作，例如启动、停止服务器，查看连接状态等。</li>
-</ul>
-</li>
-</ul>
-<h4 id="Sources（源文件）-1"><a href="#Sources（源文件）-1" class="headerlink" title="Sources（源文件）"></a>Sources（源文件）</h4><ul>
-<li><strong>chatserver.cpp</strong>：<ul>
-<li>这个文件实现了 <code>chatserver.h</code> 中声明的 <code>ChatServer</code> 类。</li>
-<li>包含了服务器启动、监听端口、接收客户端连接、处理客户端消息、消息转发等功能的具体实现。</li>
-<li>例如，服务器可能通过 <code>QTcpServer</code> 和 <code>QTcpSocket</code> 来管理多个客户端连接。</li>
-</ul>
-</li>
-<li><strong>main.cpp</strong>：<ul>
-<li>这个文件是程序的入口，通常包含 <code>main()</code> 函数。</li>
-<li><code>main()</code> 函数负责初始化应用程序、创建服务器主窗口，并启动服务器的事件循环。</li>
-</ul>
-</li>
-<li><strong>widget.cpp</strong>：<ul>
-<li>这个文件实现了 <code>widget.h</code> 中的 <code>Widget</code> 类。</li>
-<li>主要实现服务器主窗口的功能，比如用户界面的交互（例如启动或停止服务器按钮）、显示当前连接状态、日志信息等。</li>
-</ul>
-</li>
-</ul>
-<h4 id="Forms（UI-界面文件）-1"><a href="#Forms（UI-界面文件）-1" class="headerlink" title="Forms（UI 界面文件）"></a>Forms（UI 界面文件）</h4><ul>
-<li><strong>widget.ui：</strong><ul>
-<li>这个 <code>.ui</code> 文件定义了服务器主界面的用户界面。</li>
-<li>通常包括服务器控制的相关元素，例如启动和停止按钮、端口输入框，以及用于显示当前客户端连接状态的文本框或列表。</li>
-</ul>
-</li>
-</ul>
-<h3 id="项目的整体功能描述-1"><a href="#项目的整体功能描述-1" class="headerlink" title="项目的整体功能描述"></a>项目的整体功能描述</h3><ul>
-<li><strong>服务器端程序</strong>：该项目是一个聊天应用的服务器端，负责处理客户端的连接、管理多个客户端之间的通信。</li>
-<li><strong>主要功能：</strong><ul>
-<li><strong>接受客户端的连接</strong>：通过监听指定端口，接受多个客户端的连接请求。</li>
-<li><strong>处理登录和消息传递</strong>：在客户端登录时进行验证，并在客户端之间进行消息转发。</li>
-<li><strong>提供主窗口界面</strong>：通过 GUI，提供服务器管理人员控制和查看服务器状态的接口。（本项目只有调试信息）</li>
-</ul>
-</li>
-</ul>
-<h3 id="文件具体职责描述"><a href="#文件具体职责描述" class="headerlink" title="文件具体职责描述"></a>文件具体职责描述</h3><ol>
-<li><p><strong>chatserver.h 和 chatserver.cpp</strong>：</p>
-<ul>
-<li><p><strong><code>chatserver.h</code></strong> 中声明了服务器的所有必要接口，包括启动和停止服务器的方法，管理客户端连接的方法，和消息处理函数。</p>
-</li>
-<li><p><code>chatserver.cpp</code></p>
-<p> 实现了这些功能，可能通过 </p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QTcpServer</span><br></pre></td></tr></tbody></table></figure>
-
-<p> 来监听端口，并通过 </p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QTcpSocket</span><br></pre></td></tr></tbody></table></figure>
-
-<p> 来管理每个连接的客户端。具体实现功能包括：</p>
-<ul>
-<li><strong>服务器启动</strong>：监听一个指定的端口，等待客户端连接。</li>
-<li><strong>管理客户端连接</strong>：接受新连接，维护一个套接字列表，跟踪所有已连接的客户端。</li>
-<li><strong>消息处理和转发</strong>：处理从某个客户端接收到的消息，并根据目标账号将消息转发给对应的客户端。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>widget.h 和 widget.cpp</strong>：</p>
-<ul>
-<li><strong><code>widget.h</code></strong> 和 <strong><code>widget.cpp</code></strong> 文件定义了服务器的主窗口，这个窗口用于服务器的 GUI 交互。</li>
-<li>界面功能可能包括：<ul>
-<li><strong>启动和停止服务器按钮</strong>：用于服务器管理人员控制服务器。</li>
-<li><strong>显示连接信息</strong>：例如查看当前连接的客户端数量、日志输出等。</li>
-<li><strong>信息输出</strong>：显示一些服务器的状态信息，例如某个客户端连接或断开连接的日志。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>widget.ui</strong>：</p>
-<ul>
-<li><strong><code>widget.ui</code></strong> 是服务器主窗口的 UI 文件，定义了界面布局，包括按钮、状态显示框等。</li>
-<li>主要用于通过可视化方式管理服务器操作，比如监听端口的输入、查看连接信息、控制服务器启动/停止等。</li>
-</ul>
-</li>
-</ol>
-<h3 id="项目工作流程-1"><a href="#项目工作流程-1" class="headerlink" title="项目工作流程"></a>项目工作流程</h3><ol>
-<li><strong>启动服务器</strong>：<ul>
-<li>通过 <code>widget</code> 界面，服务器管理员可以选择启动服务器。</li>
-<li>服务器会开始监听指定的端口，等待客户端连接。</li>
-</ul>
-</li>
-<li><strong>客户端连接</strong>：<ul>
-<li>当客户端尝试连接时，服务器通过 <code>chatserver</code> 类处理连接请求，并接受该连接。</li>
-<li>服务器通过 <code>QTcpSocket</code> 来维护每个连接的客户端。</li>
-</ul>
-</li>
-<li><strong>消息管理</strong>：<ul>
-<li>客户端登录成功后，服务器接收来自客户端的消息，并根据消息目标账号查找对应的客户端进行转发。</li>
-<li>服务器负责确保客户端之间的消息能够正确且高效地传递。</li>
-</ul>
-</li>
-<li><strong>管理界面</strong>：<ul>
-<li>通过 <code>widget</code> 界面，管理员可以查看所有已连接的客户端，查看每个客户端的 IP 地址和端口等信息。</li>
-<li>管理员还可以通过 GUI 停止服务器或重启服务器。</li>
-</ul>
-</li>
-</ol>
-<h3 id="服务器的作用总结"><a href="#服务器的作用总结" class="headerlink" title="服务器的作用总结"></a>服务器的作用总结</h3><ul>
-<li><strong>作为中央通信枢纽</strong>：QQ 项目客户端之间不能直接通信，因此需要一个服务器来接收和转发消息。</li>
-<li><strong>管理用户登录和认证</strong>：服务器验证用户的登录信息，确保只有注册的用户可以访问服务。</li>
-<li><strong>处理多个客户端连接</strong>：服务器可以同时处理多个客户端的连接，并根据需要将消息正确地路由到目标客户端。</li>
-</ul>
-<h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><p><img src="C:/Users/30566/AppData/Roaming/Typora/typora-user-images/image-20241013121039178.png" alt="image-20241013121039178"></p>
-<h3 id="friends表"><a href="#friends表" class="headerlink" title="friends表"></a>friends表</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">-- auto-generated definition</span><br><span class="line">create table friends</span><br><span class="line">(</span><br><span class="line">    id         int auto_increment</span><br><span class="line">        primary key,</span><br><span class="line">    user_id    int                                     not null,</span><br><span class="line">    friend_id  int                                     not null,</span><br><span class="line">    status     enum ('pending', 'accepted', 'blocked') not null,</span><br><span class="line">    created_at datetime default CURRENT_TIMESTAMP      null,</span><br><span class="line">    updated_at datetime default CURRENT_TIMESTAMP      null on update CURRENT_TIMESTAMP,</span><br><span class="line">    constraint user_id</span><br><span class="line">        unique (user_id, friend_id),</span><br><span class="line">    constraint friends_ibfk_1</span><br><span class="line">        foreign key (user_id) references users (id)</span><br><span class="line">            on delete cascade,</span><br><span class="line">    constraint friends_ibfk_2</span><br><span class="line">        foreign key (friend_id) references users (id)</span><br><span class="line">            on delete cascade</span><br><span class="line">)</span><br><span class="line">    engine = InnoDB;</span><br><span class="line"></span><br><span class="line">create index friend_id</span><br><span class="line">    on friends (friend_id);</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="messages表（未用到）"><a href="#messages表（未用到）" class="headerlink" title="messages表（未用到）"></a>messages表（未用到）</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">-- auto-generated definition</span><br><span class="line">create table messages</span><br><span class="line">(</span><br><span class="line">    id          int auto_increment</span><br><span class="line">        primary key,</span><br><span class="line">    sender_id   int                                not null,</span><br><span class="line">    receiver_id int                                not null,</span><br><span class="line">    content     text                               not null,</span><br><span class="line">    timestamp   datetime default CURRENT_TIMESTAMP null,</span><br><span class="line">    constraint messages_ibfk_1</span><br><span class="line">        foreign key (sender_id) references users (id),</span><br><span class="line">    constraint messages_ibfk_2</span><br><span class="line">        foreign key (receiver_id) references users (id)</span><br><span class="line">)</span><br><span class="line">    engine = InnoDB;</span><br><span class="line"></span><br><span class="line">create index receiver_id</span><br><span class="line">    on messages (receiver_id);</span><br><span class="line"></span><br><span class="line">create index sender_id</span><br><span class="line">    on messages (sender_id);</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="users表"><a href="#users表" class="headerlink" title="users表"></a>users表</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">-- auto-generated definition</span><br><span class="line">create table users</span><br><span class="line">(</span><br><span class="line">    id       int auto_increment</span><br><span class="line">        primary key,</span><br><span class="line">    username varchar(255) not null,</span><br><span class="line">    password varchar(255) not null,</span><br><span class="line">    acount   varchar(255) null,</span><br><span class="line">    constraint username</span><br><span class="line">        unique (username)</span><br><span class="line">)</span><br><span class="line">    engine = InnoDB;</span><br></pre></td></tr></tbody></table></figure>
-
-<p>数据库没什么好说的，先听基础数据库教程，很容易就能理解。</p>
-<h2 id="实现教程"><a href="#实现教程" class="headerlink" title="实现教程"></a>实现教程</h2><h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p>先在Qt安装MySql驱动，网上有很多教程。</p>
-<h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">"widget.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QApplication&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="function">QApplication <span class="title">a</span><span class="params">(argc, argv)</span></span>;</span><br><span class="line">    <span class="comment">// 连接数据库</span></span><br><span class="line">    QSqlDatabase db = QSqlDatabase::<span class="built_in">addDatabase</span>(<span class="string">"QMYSQL"</span>);</span><br><span class="line"></span><br><span class="line">    db.<span class="built_in">setHostName</span>(<span class="string">"localhost"</span>);<span class="comment">//改为自己的，默认localhost</span></span><br><span class="line">    db.<span class="built_in">setPort</span>(<span class="number">3306</span>);	<span class="comment">//修改为自己的端口号，默认3306</span></span><br><span class="line">    db.<span class="built_in">setDatabaseName</span>(<span class="string">"qtconnectmysql"</span>);<span class="comment">//提前创建该项目数据库，并增添上述板块的三个表</span></span><br><span class="line">    db.<span class="built_in">setUserName</span>(<span class="string">"root"</span>);<span class="comment">//设为自己一开始设置的，默认root</span></span><br><span class="line">    db.<span class="built_in">setPassword</span>(<span class="string">"123456"</span>);<span class="comment">//设置注册数据库的密码，默认123456</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!db.<span class="built_in">open</span>()) {</span><br><span class="line">        <span class="built_in">qDebug</span>(<span class="string">"Sql connect failed."</span>);</span><br><span class="line">        <span class="built_in">qDebug</span>() &lt;&lt; db.<span class="built_in">lastError</span>().<span class="built_in">text</span>();</span><br><span class="line">        QMessageBox::<span class="built_in">warning</span>(<span class="literal">nullptr</span>, <span class="string">"警告"</span>, <span class="string">"无法连接数据库"</span>);</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">        <span class="built_in">qDebug</span>(<span class="string">"Sql connected."</span>);</span><br><span class="line">    }</span><br><span class="line">    Widget w;</span><br><span class="line">    w.<span class="built_in">show</span>();</span><br><span class="line">    <span class="keyword">return</span> a.<span class="built_in">exec</span>();</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<p><strong>注意修改数据库配置</strong></p>
-<h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p>先允许服务端，客户端可以复制成多份，分别同时运行，登入的账号即可实现通讯功能。</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>百度网盘：</p>
-<p>链接:<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1n5ODY9eVyCv6VlUD5ycS0Q?pwd=yxme">https://pan.baidu.com/s/1n5ODY9eVyCv6VlUD5ycS0Q?pwd=yxme</a> 提取码:yxme </p>
+                <p>一、区别<br>1、network service的制御网络接口配置信息改动后，网络服务必须从新启动，来激活网络新配置的使得配置生效，这部分操作和从新启动系统时时一样的作用。制御（控制）是/etc/init.d/network这个文件，可以用这个文件后面加上下面的参数来操作网络服务。<br>2、(NetworManager)是检测网络、自动连接网络的程序。无论是无线还是有线连接，它都可以令您轻松管理。对于无线网络,网络管理器可以自动切换到最可靠的无线网络。利用网络管理器的程序可以自由切换在线和离线模式。网络管理器可以优先选择有线网络，支持 VPN。网络管理器最初由 Redhat 公司开发，现在由 GNOME 管理。<br>二、原因<br>NetworkManager是fedora上的一个网络地址服务，它会自动地检测目前网络上的设置，并自动修改设置文件的内容，如无线网络的检测等。<br>但当它无法识别时，就会产生无法联机的状况，因此建议将NetworkManager停用并开启network服务.二者都可以配置网络服务.<br>三、解决办法<br>1、 将NetworkManager 服务设置开机不启动<br>chkconfig NetworkManager off<br>2、将NetwokManager服务关闭<br>service NetworkManager stop<br>3、重新启动一下network服务<br>service network restart</p>
 
                 
             </div>
@@ -784,7 +530,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://Zzcoded.github.io/2024/10/13/ji-yu-qt-mysql-socket-shi-xian-ben-di-ju-yu-wang-tong-xun/">http://Zzcoded.github.io/2024/10/13/ji-yu-qt-mysql-socket-shi-xian-ben-di-ju-yu-wang-tong-xun/</a>
+                    <a href="http://Zzcoded.github.io/2024/12/01/linux/pei-zhi-ip-di-zhi-shi-network-he-networkmanager-chong-tu/">http://Zzcoded.github.io/2024/12/01/linux/pei-zhi-ip-di-zhi-shi-network-he-networkmanager-chong-tu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -822,20 +568,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Qt/">
-                                    <span class="chip bg-color">Qt</span>
+                                <a href="/tags/Centos/">
+                                    <span class="chip bg-color">Centos</span>
                                 </a>
                             
-                                <a href="/tags/MySql/">
-                                    <span class="chip bg-color">MySql</span>
-                                </a>
-                            
-                                <a href="/tags/TcpSocket/">
-                                    <span class="chip bg-color">TcpSocket</span>
-                                </a>
-                            
-                                <a href="/tags/%E5%A4%9A%E7%94%A8%E6%88%B7%E5%8D%B3%E6%97%B6%E9%80%9A%E8%AE%AF/">
-                                    <span class="chip bg-color">多用户即时通讯</span>
+                                <a href="/tags/%E9%85%8D%E7%BD%AEIp%E5%9C%B0%E5%9D%80/">
+                                    <span class="chip bg-color">配置Ip地址</span>
                                 </a>
                             
                         </div>
@@ -1272,7 +1010,56 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2024/11/30/zai-gin-zhong-shi-xian-kua-yu/">
+                <a href="/2024/12/02/docker/docker-save-ming-ling/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Docker save命令">
+                        
+                        <span class="card-title">Docker save命令</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-12-02
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Docker/" class="post-category">
+                                    Docker
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Docker/">
+                        <span class="chip bg-color">Docker</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/11/30/goland/zai-gin-zhong-shi-xian-kua-yu/">
                     <div class="card-image">
                         
                         
@@ -1288,9 +1075,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-11-30
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-11-30
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1318,73 +1105,8 @@
                         <span class="chip bg-color">Gin</span>
                     </a>
                     
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2024/07/23/yolov5-bu-shu-liu-cheng/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="yolov5部署全流程">
-                        
-                        <span class="card-title">yolov5部署全流程</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-07-23
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%BB%8F%E5%8E%86/" class="post-category">
-                                    经历
-                                </a>
-                            
-                            <a href="/categories/%E7%BB%8F%E5%8E%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" class="post-category">
-                                    计算机视觉
-                                </a>
-                            
-                            <a href="/categories/%E7%BB%8F%E5%8E%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="post-category">
-                                    环境配置
-                                </a>
-                            
-                            <a href="/categories/%E7%BB%8F%E5%8E%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/yolov/" class="post-category">
-                                    yolov
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/">
-                        <span class="chip bg-color">计算机视觉</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
-                        <span class="chip bg-color">环境配置</span>
-                    </a>
-                    
-                    <a href="/tags/yolov/">
-                        <span class="chip bg-color">yolov</span>
+                    <a href="/tags/CORS/">
+                        <span class="chip bg-color">CORS</span>
                     </a>
                     
                 </div>
@@ -1578,7 +1300,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">7.9k</span>&nbsp;字
+                class="white-color">12.3k</span>&nbsp;字
             
             
             

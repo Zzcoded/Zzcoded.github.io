@@ -366,21 +366,21 @@
                     <div class="post-statis col l4 hide-on-med-and-down" data-aos="zoom-in-right">
                         
 <div class="statis">
-    <span class="count"><a href="/">4</a></span>
+    <span class="count"><a href="/">8</a></span>
     <span class="name">文章</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/categories">9</a></span>
+    <span class="count"><a href="/categories">12</a></span>
     <span class="name">分类</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/tags">11</a></span>
+    <span class="count"><a href="/tags">15</a></span>
     <span class="name">标签</span>
 </div>
 
@@ -396,21 +396,21 @@
                                 <div class="post-statis hide-on-large-only" data-aos="zoom-in-right">
                                     
 <div class="statis">
-    <span class="count"><a href="/">4</a></span>
+    <span class="count"><a href="/">8</a></span>
     <span class="name">文章</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/categories">9</a></span>
+    <span class="count"><a href="/categories">12</a></span>
     <span class="name">分类</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/tags">11</a></span>
+    <span class="count"><a href="/tags">15</a></span>
     <span class="name">标签</span>
 </div>
 
@@ -536,7 +536,7 @@
         },
         xAxis: {
             type: 'category',
-            data: ["2023-11","2023-12","2024-01","2024-02","2024-03","2024-04","2024-05","2024-06","2024-07","2024-08","2024-09","2024-10","2024-11"]
+            data: ["2023-12","2024-01","2024-02","2024-03","2024-04","2024-05","2024-06","2024-07","2024-08","2024-09","2024-10","2024-11","2024-12"]
         },
         yAxis: {
             type: 'value',
@@ -546,7 +546,7 @@
                 name: '文章篇数',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [0,0,0,0,0,0,0,1,1,0,0,1,1],
+                data: [0,0,0,0,0,0,1,1,0,0,1,1,4],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a','#3ecf8e','#82d3f4'],
@@ -588,7 +588,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"经历","value":2},{"name":"Go","value":1},{"name":"Qt","value":1},{"name":"计算机视觉","value":1},{"name":"Gin","value":1},{"name":"MySql","value":1},{"name":"环境配置","value":1},{"name":"TcpSocket","value":1},{"name":"yolov","value":1}],
+                data: [{"name":"经历","value":2},{"name":"Docker","value":2},{"name":"Centos","value":1},{"name":"Go","value":1},{"name":"计算机视觉","value":1},{"name":"k8s","value":1},{"name":"Qt","value":1},{"name":"Gin","value":1},{"name":"环境配置","value":1},{"name":"MySql","value":1},{"name":"yolov","value":1},{"name":"TcpSocket","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -612,7 +612,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["经历","蓝桥杯","计算机视觉","环境配置","yolov","Go","Gin","Qt","MySql","TcpSocket"]
+                data: ["Docker","经历","蓝桥杯","计算机视觉","环境配置","yolov","Centos","配置Ip地址","Go","Gin"]
             }
         ],
         yAxis: [
@@ -625,7 +625,7 @@
                 type: 'bar',
                 color: ['#82d3f4'],
                 barWidth : 18,
-                data: [1,1,1,1,1,1,1,1,1,1],
+                data: [2,1,1,1,1,1,1,1,1,1],
                 markPoint: {
                     symbolSize: 45,
                     data: [{
@@ -825,6 +825,24 @@
             
             
             
+            <a href="/tags/Docker/">
+                <span class="chip center-align waves-effect waves-light chip-default">Docker</span>
+            </a>
+            
+            
+            
+            <a href="/tags/Centos/">
+                <span class="chip center-align waves-effect waves-light chip-default">Centos</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E9%85%8D%E7%BD%AEIp%E5%9C%B0%E5%9D%80/">
+                <span class="chip center-align waves-effect waves-light chip-default">配置Ip地址</span>
+            </a>
+            
+            
+            
             <a href="/tags/Go/">
                 <span class="chip center-align waves-effect waves-light chip-default">Go</span>
             </a>
@@ -833,6 +851,18 @@
             
             <a href="/tags/Gin/">
                 <span class="chip center-align waves-effect waves-light chip-default">Gin</span>
+            </a>
+            
+            
+            
+            <a href="/tags/CORS/">
+                <span class="chip center-align waves-effect waves-light chip-default">CORS</span>
+            </a>
+            
+            
+            
+            <a href="/tags/k8s/">
+                <span class="chip center-align waves-effect waves-light chip-default">k8s</span>
             </a>
             
             
@@ -851,12 +881,6 @@
             
             <a href="/tags/TcpSocket/">
                 <span class="chip center-align waves-effect waves-light chip-default">TcpSocket</span>
-            </a>
-            
-            
-            
-            <a href="/tags/%E5%A4%9A%E7%94%A8%E6%88%B7%E5%8D%B3%E6%97%B6%E9%80%9A%E8%AE%AF/">
-                <span class="chip center-align waves-effect waves-light chip-default">多用户即时通讯</span>
             </a>
             
             
@@ -978,7 +1002,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">7.9k</span>&nbsp;字
+                class="white-color">12.3k</span>&nbsp;字
             
             
             

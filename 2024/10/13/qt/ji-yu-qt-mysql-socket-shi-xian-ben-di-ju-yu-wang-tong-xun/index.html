@@ -1,0 +1,1861 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="基于Qt+MySql+Socket实现本地通讯, Zzcat">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>基于Qt+MySql+Socket实现本地通讯 | Zzcat</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 7.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Zzcat</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Zzcat</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">基于Qt+MySql+Socket实现本地通讯</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Qt/">
+                                <span class="chip bg-color">Qt</span>
+                            </a>
+                        
+                            <a href="/tags/MySql/">
+                                <span class="chip bg-color">MySql</span>
+                            </a>
+                        
+                            <a href="/tags/TcpSocket/">
+                                <span class="chip bg-color">TcpSocket</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Qt/" class="post-category">
+                                Qt
+                            </a>
+                        
+                            <a href="/categories/Qt/MySql/" class="post-category">
+                                MySql
+                            </a>
+                        
+                            <a href="/categories/Qt/MySql/TcpSocket/" class="post-category">
+                                TcpSocket
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-10-13
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-12-07
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.4k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    12 分
+                </div>
+                
+
+                
+                    <span id="busuanzi_container_site_pv"  style='display:none'></span> <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp; <span id="busuanzi_value_page_pv" ></span> 
+
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="整体介绍"><a href="#整体介绍" class="headerlink" title="整体介绍"></a>整体介绍</h1><p>​		这个项目的初衷是用来学习Socket网络通讯，并练习基础的MySql语句，但因时间有限，只实现了基本通讯功能，主要分为注册账号，增添好友，和本地通讯三个功能。</p>
+<p>​		因作者实力有限，所以代码中可能会遇到一些bug，如果读者遇到不懂的地方可以通过博客里面的联系方式找我讨论或者在评论区提问，还因为作者的英语水平有限，所以代码中有些变量的命名存在拼写错误，比如账号account,但我通篇都是acount，后期发现了也没有精力去修改了，类似其他的问题都可以在评论区提出。本代码完全由本人和chatgpt合力完成，未有抄袭，任何人都可以直接拿来参考共同学习。</p>
+<h1 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h1><h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><p>项目是用C++写的，需要有Qt基础和MySql基础，该项目的目的在于简单了解TCP/IP协议内容，简单实现Socket通讯，和一些数据库语句的基本用法，里面还有很多bug，最终比较遗憾的是只实现了本地多人通讯，做的时候没有往局域网通讯的方向去想，导致做完之后发现客户端的权限太大了，只能实现本地通讯。由于后续又有其他的任务，就没有精力去完善了，所以该项目就算是给大家举了一个反面教材，希望大家之后在做客户端的时候注意只用写请求就行，不要和数据库等内容相关联。觉得做的比较满意的部分是用服务器实现了多人通讯，也就是一个人可以通过指定好友向服务器发送请求，然后服务器会处理请求，并做出回应，将信息传递给接收者。</p>
+<h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h2><p><img src="/../../images/image-20241016234807980.png" alt="image-20241016234807980"></p>
+<p><img src="/../../images/image-20241016234823553.png" alt="image-20241016234823553"></p>
+<p><img src="/../../images/image-20241016234733080.png" alt="image-20241016234733080"></p>
+<h2 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h2><p><img src="/../../images/image-20241207133303739.png" alt="image-20241207133303739"></p>
+<h3 id="各个文件的作用"><a href="#各个文件的作用" class="headerlink" title="各个文件的作用"></a>各个文件的作用</h3><h4 id="Headers（头文件）"><a href="#Headers（头文件）" class="headerlink" title="Headers（头文件）"></a>Headers（头文件）</h4><ul>
+<li><strong>addfrienddialog.h</strong>：<ul>
+<li>这个头文件声明了 <code>AddFriendDialog</code> 类，通常用于管理“添加好友”的对话框。</li>
+<li>可能包括用于输入好友账号、添加好友的按钮，以及处理输入和用户操作的接口声明。</li>
+</ul>
+</li>
+<li><strong>chatpage.h</strong>：<ul>
+<li>这个头文件声明了 <code>ChatPage</code> 类，通常用于表示一个聊天窗口，包含了聊天内容的展示、发送消息等功能。</li>
+<li>包括聊天界面的基本操作，比如发送和接收消息的功能。</li>
+</ul>
+</li>
+<li><strong>dialoglist.h</strong>：<ul>
+<li>这个头文件声明了 <code>DialogList</code> 类，通常用于管理当前用户的好友列表和会话窗口。</li>
+<li>包括显示好友列表的界面和管理与多个好友聊天的功能，允许用户选择好友并打开聊天窗口。</li>
+</ul>
+</li>
+<li><strong>signup.h</strong>：<ul>
+<li>这个头文件声明了 <code>Signup</code> 类，用于管理注册用户的界面。</li>
+<li>包含用户注册的相关接口，比如输入用户名、密码以及确认注册的逻辑。</li>
+</ul>
+</li>
+<li><strong>widget.h</strong>：<ul>
+<li>这个头文件声明了主窗口（<code>Widget</code> 类），通常是应用程序启动后的主界面。</li>
+<li>包括登录界面、注册按钮等初始操作的逻辑。</li>
+</ul>
+</li>
+</ul>
+<h4 id="Sources（源文件）"><a href="#Sources（源文件）" class="headerlink" title="Sources（源文件）"></a>Sources（源文件）</h4><ul>
+<li><strong>addfrienddialog.cpp</strong>：<ul>
+<li>这个源文件是 <code>addfrienddialog.h</code> 的实现部分，具体实现了添加好友对话框的功能。</li>
+<li>例如：处理用户输入好友账号后的确认、取消等按钮的逻辑，以及与好友系统的交互。</li>
+</ul>
+</li>
+<li><strong>chatpage.cpp</strong>：<ul>
+<li>这个源文件实现了 <code>chatpage.h</code> 中的声明，提供了聊天窗口的具体功能。</li>
+<li>包括发送消息、显示接收到的消息等实现，处理聊天界面的 UI 和消息逻辑。</li>
+</ul>
+</li>
+<li><strong>dialoglist.cpp</strong>：<ul>
+<li>这个源文件实现了 <code>dialoglist.h</code> 中的功能，主要用于管理好友列表和多对话窗口。</li>
+<li>包括加载好友列表、打开聊天窗口、响应服务器的消息、添加好友的逻辑等。</li>
+</ul>
+</li>
+<li><strong>main.cpp</strong>：<ul>
+<li>这个文件是程序的入口，通常包含 <code>main()</code> 函数。</li>
+<li>在这里会初始化应用程序，显示主窗口，并开始应用程序的事件循环。</li>
+</ul>
+</li>
+<li><strong>signup.cpp</strong>：<ul>
+<li>这个源文件是 <code>signup.h</code> 的实现部分，具体实现了注册窗口的功能。</li>
+<li>包括检查用户输入是否有效、注册到数据库等具体的逻辑。</li>
+</ul>
+</li>
+<li><strong>widget.cpp</strong>：<ul>
+<li>这个文件是 <code>widget.h</code> 的实现部分，用于实现主窗口的功能。</li>
+<li>包括初始化登录界面、用户输入处理以及登录、注册按钮的响应逻辑。</li>
+</ul>
+</li>
+</ul>
+<h4 id="Forms（UI-界面文件）"><a href="#Forms（UI-界面文件）" class="headerlink" title="Forms（UI 界面文件）"></a>Forms（UI 界面文件）</h4><ul>
+<li><strong>addfrienddialog.ui</strong>：<ul>
+<li>这个 <code>.ui</code> 文件定义了添加好友对话框的用户界面。</li>
+<li>包含输入好友账号的文本框、确认和取消的按钮等界面元素。</li>
+</ul>
+</li>
+<li><strong>chatpage.ui</strong>：<ul>
+<li>这个 <code>.ui</code> 文件定义了聊天窗口的用户界面。</li>
+<li>包含显示聊天记录的区域、输入消息的文本框、发送按钮等元素。</li>
+</ul>
+</li>
+<li><strong>dialoglist.ui</strong>：<ul>
+<li>这个 <code>.ui</code> 文件定义了好友列表的用户界面。</li>
+<li>包含显示当前用户所有好友的列表、选择好友进行聊天的按钮等界面元素。</li>
+</ul>
+</li>
+<li><strong>signup.ui</strong>：<ul>
+<li>这个 <code>.ui</code> 文件定义了用户注册界面。</li>
+<li>包含用户名、密码输入框，以及确认注册的按钮。</li>
+</ul>
+</li>
+<li><strong>widget.ui</strong>：<ul>
+<li>这个 <code>.ui</code> 文件定义了应用程序的主界面。</li>
+<li>通常用于登录界面，包含账号、密码输入框、登录按钮、注册按钮等。</li>
+</ul>
+</li>
+</ul>
+<h3 id="项目的整体功能描述"><a href="#项目的整体功能描述" class="headerlink" title="项目的整体功能描述"></a>项目的整体功能描述</h3><ul>
+<li><strong>Widget（主界面）</strong>：是程序的入口，包括登录和注册功能。</li>
+<li><strong>Signup（注册界面）</strong>：用于新用户的注册功能。</li>
+<li><strong>DialogList（好友列表界面）</strong>：在用户登录成功后，显示用户的好友列表，并允许用户与好友进行聊天。</li>
+<li><strong>ChatPage（聊天界面）</strong>：用户可以与好友发送和接收消息。</li>
+<li><strong>AddFriendDialog（添加好友对话框）</strong>：用于添加新好友的功能，输入好友的账号后请求添加。</li>
+</ul>
+<h3 id="项目工作流程"><a href="#项目工作流程" class="headerlink" title="项目工作流程"></a>项目工作流程</h3><p><strong>用户启动程序</strong>，首先看到的是登录界面（由 <code>widget</code> 类实现）。</p>
+<ul>
+<li>用户可以选择登录或注册。</li>
+<li>如果用户选择注册，则会转到 <code>Signup</code> 界面。</li>
+</ul>
+<p><strong>登录成功后</strong>，进入到 <code>DialogList</code> 界面，可以看到当前好友列表。</p>
+<ul>
+<li>可以选择某个好友，点击后打开对应的聊天窗口（<code>ChatPage</code>）。</li>
+<li>也可以通过“添加好友”按钮，打开 <code>AddFriendDialog</code> 对话框，添加新好友。</li>
+</ul>
+<p><strong>聊天窗口</strong>允许用户发送和接收消息，整个系统通过 <code>QTcpSocket</code> 与服务器通信来完成消息的收发。</p>
+<h2 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h2><p><img src="/../../images/image-20241013115547963.png" alt="image-20241013115547963"></p>
+<h3 id="各个文件的作用-1"><a href="#各个文件的作用-1" class="headerlink" title="各个文件的作用"></a>各个文件的作用</h3><h4 id="Headers（头文件）-1"><a href="#Headers（头文件）-1" class="headerlink" title="Headers（头文件）"></a>Headers（头文件）</h4><ul>
+<li><strong>chatserver.h：</strong><ul>
+<li>这个头文件声明了 <code>ChatServer</code> 类，它是服务器的核心部分，用于管理客户端连接、消息处理等。</li>
+<li>包含与客户端的连接管理、消息转发、登录验证等功能的声明。</li>
+</ul>
+</li>
+<li><strong>widget.h：</strong><ul>
+<li>这个头文件声明了 <code>Widget</code> 类，通常用于表示服务器的主窗口。</li>
+<li>主要是服务器界面的基本操作，例如启动、停止服务器，查看连接状态等。</li>
+</ul>
+</li>
+</ul>
+<h4 id="Sources（源文件）-1"><a href="#Sources（源文件）-1" class="headerlink" title="Sources（源文件）"></a>Sources（源文件）</h4><ul>
+<li><strong>chatserver.cpp</strong>：<ul>
+<li>这个文件实现了 <code>chatserver.h</code> 中声明的 <code>ChatServer</code> 类。</li>
+<li>包含了服务器启动、监听端口、接收客户端连接、处理客户端消息、消息转发等功能的具体实现。</li>
+<li>例如，服务器可能通过 <code>QTcpServer</code> 和 <code>QTcpSocket</code> 来管理多个客户端连接。</li>
+</ul>
+</li>
+<li><strong>main.cpp</strong>：<ul>
+<li>这个文件是程序的入口，通常包含 <code>main()</code> 函数。</li>
+<li><code>main()</code> 函数负责初始化应用程序、创建服务器主窗口，并启动服务器的事件循环。</li>
+</ul>
+</li>
+<li><strong>widget.cpp</strong>：<ul>
+<li>这个文件实现了 <code>widget.h</code> 中的 <code>Widget</code> 类。</li>
+<li>主要实现服务器主窗口的功能，比如用户界面的交互（例如启动或停止服务器按钮）、显示当前连接状态、日志信息等。</li>
+</ul>
+</li>
+</ul>
+<h4 id="Forms（UI-界面文件）-1"><a href="#Forms（UI-界面文件）-1" class="headerlink" title="Forms（UI 界面文件）"></a>Forms（UI 界面文件）</h4><ul>
+<li><strong>widget.ui：</strong><ul>
+<li>这个 <code>.ui</code> 文件定义了服务器主界面的用户界面。</li>
+<li>通常包括服务器控制的相关元素，例如启动和停止按钮、端口输入框，以及用于显示当前客户端连接状态的文本框或列表。</li>
+</ul>
+</li>
+</ul>
+<h3 id="项目的整体功能描述-1"><a href="#项目的整体功能描述-1" class="headerlink" title="项目的整体功能描述"></a>项目的整体功能描述</h3><ul>
+<li><strong>服务器端程序</strong>：该项目是一个聊天应用的服务器端，负责处理客户端的连接、管理多个客户端之间的通信。</li>
+<li><strong>主要功能：</strong><ul>
+<li><strong>接受客户端的连接</strong>：通过监听指定端口，接受多个客户端的连接请求。</li>
+<li><strong>处理登录和消息传递</strong>：在客户端登录时进行验证，并在客户端之间进行消息转发。</li>
+<li><strong>提供主窗口界面</strong>：通过 GUI，提供服务器管理人员控制和查看服务器状态的接口。（本项目只有调试信息）</li>
+</ul>
+</li>
+</ul>
+<h3 id="文件具体职责描述"><a href="#文件具体职责描述" class="headerlink" title="文件具体职责描述"></a>文件具体职责描述</h3><ol>
+<li><p><strong>chatserver.h 和 chatserver.cpp</strong>：</p>
+<ul>
+<li><p><strong><code>chatserver.h</code></strong> 中声明了服务器的所有必要接口，包括启动和停止服务器的方法，管理客户端连接的方法，和消息处理函数。</p>
+</li>
+<li><p><code>chatserver.cpp</code></p>
+<p> 实现了这些功能，可能通过 </p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QTcpServer</span><br></pre></td></tr></tbody></table></figure>
+
+<p> 来监听端口，并通过 </p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QTcpSocket</span><br></pre></td></tr></tbody></table></figure>
+
+<p> 来管理每个连接的客户端。具体实现功能包括：</p>
+<ul>
+<li><strong>服务器启动</strong>：监听一个指定的端口，等待客户端连接。</li>
+<li><strong>管理客户端连接</strong>：接受新连接，维护一个套接字列表，跟踪所有已连接的客户端。</li>
+<li><strong>消息处理和转发</strong>：处理从某个客户端接收到的消息，并根据目标账号将消息转发给对应的客户端。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>widget.h 和 widget.cpp</strong>：</p>
+<ul>
+<li><strong><code>widget.h</code></strong> 和 <strong><code>widget.cpp</code></strong> 文件定义了服务器的主窗口，这个窗口用于服务器的 GUI 交互。</li>
+<li>界面功能可能包括：<ul>
+<li><strong>启动和停止服务器按钮</strong>：用于服务器管理人员控制服务器。</li>
+<li><strong>显示连接信息</strong>：例如查看当前连接的客户端数量、日志输出等。</li>
+<li><strong>信息输出</strong>：显示一些服务器的状态信息，例如某个客户端连接或断开连接的日志。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>widget.ui</strong>：</p>
+<ul>
+<li><strong><code>widget.ui</code></strong> 是服务器主窗口的 UI 文件，定义了界面布局，包括按钮、状态显示框等。</li>
+<li>主要用于通过可视化方式管理服务器操作，比如监听端口的输入、查看连接信息、控制服务器启动/停止等。</li>
+</ul>
+</li>
+</ol>
+<h3 id="项目工作流程-1"><a href="#项目工作流程-1" class="headerlink" title="项目工作流程"></a>项目工作流程</h3><ol>
+<li><strong>启动服务器</strong>：<ul>
+<li>通过 <code>widget</code> 界面，服务器管理员可以选择启动服务器。</li>
+<li>服务器会开始监听指定的端口，等待客户端连接。</li>
+</ul>
+</li>
+<li><strong>客户端连接</strong>：<ul>
+<li>当客户端尝试连接时，服务器通过 <code>chatserver</code> 类处理连接请求，并接受该连接。</li>
+<li>服务器通过 <code>QTcpSocket</code> 来维护每个连接的客户端。</li>
+</ul>
+</li>
+<li><strong>消息管理</strong>：<ul>
+<li>客户端登录成功后，服务器接收来自客户端的消息，并根据消息目标账号查找对应的客户端进行转发。</li>
+<li>服务器负责确保客户端之间的消息能够正确且高效地传递。</li>
+</ul>
+</li>
+<li><strong>管理界面</strong>：<ul>
+<li>通过 <code>widget</code> 界面，管理员可以查看所有已连接的客户端，查看每个客户端的 IP 地址和端口等信息。</li>
+<li>管理员还可以通过 GUI 停止服务器或重启服务器。</li>
+</ul>
+</li>
+</ol>
+<h3 id="服务器的作用总结"><a href="#服务器的作用总结" class="headerlink" title="服务器的作用总结"></a>服务器的作用总结</h3><ul>
+<li><strong>作为中央通信枢纽</strong>：QQ 项目客户端之间不能直接通信，因此需要一个服务器来接收和转发消息。</li>
+<li><strong>管理用户登录和认证</strong>：服务器验证用户的登录信息，确保只有注册的用户可以访问服务。</li>
+<li><strong>处理多个客户端连接</strong>：服务器可以同时处理多个客户端的连接，并根据需要将消息正确地路由到目标客户端。</li>
+</ul>
+<h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><p><img src="/../../images/image-20241013121039178.png" alt="image-20241013121039178"></p>
+<h3 id="friends表"><a href="#friends表" class="headerlink" title="friends表"></a>friends表</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">-- auto-generated definition</span><br><span class="line">create table friends</span><br><span class="line">(</span><br><span class="line">    id         int auto_increment</span><br><span class="line">        primary key,</span><br><span class="line">    user_id    int                                     not null,</span><br><span class="line">    friend_id  int                                     not null,</span><br><span class="line">    status     enum ('pending', 'accepted', 'blocked') not null,</span><br><span class="line">    created_at datetime default CURRENT_TIMESTAMP      null,</span><br><span class="line">    updated_at datetime default CURRENT_TIMESTAMP      null on update CURRENT_TIMESTAMP,</span><br><span class="line">    constraint user_id</span><br><span class="line">        unique (user_id, friend_id),</span><br><span class="line">    constraint friends_ibfk_1</span><br><span class="line">        foreign key (user_id) references users (id)</span><br><span class="line">            on delete cascade,</span><br><span class="line">    constraint friends_ibfk_2</span><br><span class="line">        foreign key (friend_id) references users (id)</span><br><span class="line">            on delete cascade</span><br><span class="line">)</span><br><span class="line">    engine = InnoDB;</span><br><span class="line"></span><br><span class="line">create index friend_id</span><br><span class="line">    on friends (friend_id);</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="messages表（未用到）"><a href="#messages表（未用到）" class="headerlink" title="messages表（未用到）"></a>messages表（未用到）</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">-- auto-generated definition</span><br><span class="line">create table messages</span><br><span class="line">(</span><br><span class="line">    id          int auto_increment</span><br><span class="line">        primary key,</span><br><span class="line">    sender_id   int                                not null,</span><br><span class="line">    receiver_id int                                not null,</span><br><span class="line">    content     text                               not null,</span><br><span class="line">    timestamp   datetime default CURRENT_TIMESTAMP null,</span><br><span class="line">    constraint messages_ibfk_1</span><br><span class="line">        foreign key (sender_id) references users (id),</span><br><span class="line">    constraint messages_ibfk_2</span><br><span class="line">        foreign key (receiver_id) references users (id)</span><br><span class="line">)</span><br><span class="line">    engine = InnoDB;</span><br><span class="line"></span><br><span class="line">create index receiver_id</span><br><span class="line">    on messages (receiver_id);</span><br><span class="line"></span><br><span class="line">create index sender_id</span><br><span class="line">    on messages (sender_id);</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="users表"><a href="#users表" class="headerlink" title="users表"></a>users表</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">-- auto-generated definition</span><br><span class="line">create table users</span><br><span class="line">(</span><br><span class="line">    id       int auto_increment</span><br><span class="line">        primary key,</span><br><span class="line">    username varchar(255) not null,</span><br><span class="line">    password varchar(255) not null,</span><br><span class="line">    acount   varchar(255) null,</span><br><span class="line">    constraint username</span><br><span class="line">        unique (username)</span><br><span class="line">)</span><br><span class="line">    engine = InnoDB;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>数据库没什么好说的，先听基础数据库教程，很容易就能理解。</p>
+<h2 id="实现教程"><a href="#实现教程" class="headerlink" title="实现教程"></a>实现教程</h2><h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p>先在Qt安装MySql驱动，网上有很多教程。</p>
+<h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">"widget.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QApplication&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="function">QApplication <span class="title">a</span><span class="params">(argc, argv)</span></span>;</span><br><span class="line">    <span class="comment">// 连接数据库</span></span><br><span class="line">    QSqlDatabase db = QSqlDatabase::<span class="built_in">addDatabase</span>(<span class="string">"QMYSQL"</span>);</span><br><span class="line"></span><br><span class="line">    db.<span class="built_in">setHostName</span>(<span class="string">"localhost"</span>);<span class="comment">//改为自己的，默认localhost</span></span><br><span class="line">    db.<span class="built_in">setPort</span>(<span class="number">3306</span>);	<span class="comment">//修改为自己的端口号，默认3306</span></span><br><span class="line">    db.<span class="built_in">setDatabaseName</span>(<span class="string">"qtconnectmysql"</span>);<span class="comment">//提前创建该项目数据库，并增添上述板块的三个表</span></span><br><span class="line">    db.<span class="built_in">setUserName</span>(<span class="string">"root"</span>);<span class="comment">//设为自己一开始设置的，默认root</span></span><br><span class="line">    db.<span class="built_in">setPassword</span>(<span class="string">"123456"</span>);<span class="comment">//设置注册数据库的密码，默认123456</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!db.<span class="built_in">open</span>()) {</span><br><span class="line">        <span class="built_in">qDebug</span>(<span class="string">"Sql connect failed."</span>);</span><br><span class="line">        <span class="built_in">qDebug</span>() &lt;&lt; db.<span class="built_in">lastError</span>().<span class="built_in">text</span>();</span><br><span class="line">        QMessageBox::<span class="built_in">warning</span>(<span class="literal">nullptr</span>, <span class="string">"警告"</span>, <span class="string">"无法连接数据库"</span>);</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">        <span class="built_in">qDebug</span>(<span class="string">"Sql connected."</span>);</span><br><span class="line">    }</span><br><span class="line">    Widget w;</span><br><span class="line">    w.<span class="built_in">show</span>();</span><br><span class="line">    <span class="keyword">return</span> a.<span class="built_in">exec</span>();</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>注意修改数据库配置</strong></p>
+<h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p>先允许服务端，客户端可以复制成多份，分别同时运行，登入的账号即可实现通讯功能。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>百度网盘：</p>
+<p>链接:<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1n5ODY9eVyCv6VlUD5ycS0Q?pwd=yxme">https://pan.baidu.com/s/1n5ODY9eVyCv6VlUD5ycS0Q?pwd=yxme</a> 提取码:yxme </p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Zzcat</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://Zzcoded.github.io/2024/10/13/qt/ji-yu-qt-mysql-socket-shi-xian-ben-di-ju-yu-wang-tong-xun/">http://Zzcoded.github.io/2024/10/13/qt/ji-yu-qt-mysql-socket-shi-xian-ben-di-ju-yu-wang-tong-xun/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Zzcat</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Qt/">
+                                    <span class="chip bg-color">Qt</span>
+                                </a>
+                            
+                                <a href="/tags/MySql/">
+                                    <span class="chip bg-color">MySql</span>
+                                </a>
+                            
+                                <a href="/tags/TcpSocket/">
+                                    <span class="chip bg-color">TcpSocket</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 't4gWOpuXsPChNDzzEUYb3UoT-gzGzoHsz',
+        appKey: 'h8pEpeIhgcatf2MhKgKntjQB',
+        notify: 'false' === 'true',
+        verify: 'true' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/11/30/goland/zai-gin-zhong-shi-xian-kua-yu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="在Gin中实现跨域">
+                        
+                        <span class="card-title">在Gin中实现跨域</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-11-30
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Go/" class="post-category">
+                                    Go
+                                </a>
+                            
+                            <a href="/categories/Go/Gin/" class="post-category">
+                                    Gin
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Go/">
+                        <span class="chip bg-color">Go</span>
+                    </a>
+                    
+                    <a href="/tags/Gin/">
+                        <span class="chip bg-color">Gin</span>
+                    </a>
+                    
+                    <a href="/tags/CORS/">
+                        <span class="chip bg-color">CORS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/07/23/yolov5-bu-shu-liu-cheng/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="yolov5部署全流程">
+                        
+                        <span class="card-title">yolov5部署全流程</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-07-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%BB%8F%E5%8E%86/" class="post-category">
+                                    经历
+                                </a>
+                            
+                            <a href="/categories/%E7%BB%8F%E5%8E%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" class="post-category">
+                                    计算机视觉
+                                </a>
+                            
+                            <a href="/categories/%E7%BB%8F%E5%8E%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="post-category">
+                                    环境配置
+                                </a>
+                            
+                            <a href="/categories/%E7%BB%8F%E5%8E%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/yolov/" class="post-category">
+                                    yolov
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/">
+                        <span class="chip bg-color">计算机视觉</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
+                        <span class="chip bg-color">环境配置</span>
+                    </a>
+                    
+                    <a href="/tags/yolov/">
+                        <span class="chip bg-color">yolov</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2520739691"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2024</span>
+            
+            <span id="year">2024</span>
+            <a href="/about" target="_blank">Zzcat</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">12.3k</span>&nbsp;字
+            
+            
+            
+            
+            
+           
+   <span id="busuanzi_container_site_pv" style="font-size: 12px;">
+    本站访问量:
+    <span id="busuanzi_value_site_pv"></span> 次
+</span>
+ 丨
+<span id="busuanzi_container_site_pv" style="font-size: 12px;">
+    本站访客:
+    <span id="busuanzi_value_site_uv"></span> 人
+</span>
+	
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+					setTimeout(siteTime, 1000);
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2024";
+                    var startMonth = "4";
+                    var startDate = "22";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setTimeout(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Zzcoded" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:3056609226@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=3056609226" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 3056609226" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+<script>
+    $(document).ready(function () {
+
+        var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+        var pvcountOffset = 80000;  // 初始化首次数据
+        var uvcountOffset = 20000;
+
+        function fixCount() {
+            if (document.getElementById("busuanzi_container_site_pv").style.display != "none") {
+                $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + pvcountOffset);
+                clearInterval(int);
+            }
+            if ($("#busuanzi_container_site_pv").css("display") != "none") {
+                $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + uvcountOffset); // 加上初始数据 
+                clearInterval(int); // 停止检测
+            }
+        }
+    });
+</script>
+
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+
+</html>
