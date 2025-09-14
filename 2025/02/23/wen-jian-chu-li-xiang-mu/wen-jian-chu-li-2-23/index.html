@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="文件处理3-20, Zzcat">
+    <meta name="keywords" content="文件处理项目2.23, Zzcat">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>文件处理3-20 | Zzcat</title>
+    <title>文件处理项目2.23 | Zzcat</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -312,12 +312,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">文件处理3-20</h1>
+                    <h1 class="description center-align post-title">文件处理项目2.23</h1>
                 </div>
             </div>
         </div>
@@ -433,12 +433,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Pillow/">
-                                <span class="chip bg-color">Pillow</span>
-                            </a>
-                        
-                            <a href="/tags/PyDub/">
-                                <span class="chip bg-color">PyDub</span>
+                            <a href="/tags/%E2%80%94-canvas-show-pdf-page/">
+                                <span class="chip bg-color">— canvas - show_pdf_page</span>
                             </a>
                         
                     </div>
@@ -462,28 +458,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2025-03-20
+                    2025-02-23
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-03-20
+                    2025-03-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    80
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -503,11 +499,95 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Pillow支持的图像格式"><a href="#Pillow支持的图像格式" class="headerlink" title="Pillow支持的图像格式"></a>Pillow支持的图像格式</h1><p>完全支持的格式<br>BMP, DIB, EPS, GIF, ICNS, ICO, IM, JPEG, JPEG 2000, MSP, PCX, PNG, PPM, SGI, SPIDER, TGA, TIFF, WEBP, XBM</p>
-<p>只读格式<br>BLP, CUR, DCX, DDS, FLC, FPX, FTEX, GBR, GD, IMT, IPTC/NAA, MCIDAS, MIC, MPO, PCD, PIXAR, PSD, WAL, XPM</p>
-<p>只写格式<br>PALM,PDF,XV缩略图</p>
-<p>只标识格式<br>BUFR, FITS, GRIB, HDF5, MPEG, WMF</p>
-<h1 id="PyDub"><a href="#PyDub" class="headerlink" title="PyDub"></a>PyDub</h1>
+                <h1 id="Canvas"><a href="#Canvas" class="headerlink" title="Canvas"></a>Canvas</h1><p><strong>canvas.Canvas</strong>是来自 <code>reportlab</code> 库的一种对象，通常用于生成 PDF 文件。它提供了多种方法来绘制文本、图形、图片等内容。代码中的 <code>canvas.Canvas(wm_output_path, pagesize=(width, height))</code> 表示创建一个新的 PDF 画布并指定输出路径和页面尺寸。</p>
+<h3 id="解释："><a href="#解释：" class="headerlink" title="解释："></a>解释：</h3><ol>
+<li>**<code>wm_output_path</code>**：PDF 文件的输出路径，指定生成的 PDF 文件存储的位置和文件名。</li>
+<li>**<code>pagesize=(width, height)</code>**：指定页面的大小。<code>width</code> 和 <code>height</code> 是页面的宽度和高度。<code>pagesize</code> 可以是元组 <code>(宽度, 高度)</code>，例如 <code>(595, 842)</code> 表示 A4 纸的大小，单位是点（1 点 = 1/72 英寸）。</li>
+</ol>
+<h3 id="常见的-Canvas-方法："><a href="#常见的-Canvas-方法：" class="headerlink" title="常见的 Canvas 方法："></a>常见的 <code>Canvas</code> 方法：</h3><ul>
+<li><p>**<code>drawString(x, y, text)</code>**：在指定位置 <code>(x, y)</code> 绘制文本 <code>text</code>。</p>
+</li>
+<li><p>**<code>line(x1, y1, x2, y2)</code>**：在指定的两个坐标 <code>(x1, y1)</code> 和 <code>(x2, y2)</code> 之间绘制一条线。</p>
+</li>
+<li><p>**<code>rect(x, y, width, height)</code>**：绘制一个矩形，左下角在 <code>(x, y)</code> 位置，宽度为 <code>width</code>，高度为 <code>height</code>。</p>
+</li>
+<li><p>**<code>setFont(fontname, fontsize)</code>**：设置文本的字体和大小。</p>
+</li>
+<li><p>**<code>save()</code>**：保存并关闭 PDF 文件。</p>
+<h3 id="canvas-Canvas-参数"><a href="#canvas-Canvas-参数" class="headerlink" title="canvas.Canvas 参数"></a><code>canvas.Canvas</code> 参数</h3><h3 id="1-filename（必需）"><a href="#1-filename（必需）" class="headerlink" title="1. filename（必需）"></a>1. <strong><code>filename</code>（必需）</strong></h3><ul>
+<li><strong>描述</strong>：输出的 PDF 文件路径。</li>
+<li><strong>类型</strong>：字符串</li>
+<li><strong>示例</strong>：<code>"output.pdf"</code></li>
+</ul>
+<h3 id="2-pagesize（可选）"><a href="#2-pagesize（可选）" class="headerlink" title="2. pagesize（可选）"></a>2. <code>pagesize</code>（可选）</h3><ul>
+<li><strong>描述</strong>：指定页面的大小。</li>
+<li><strong>类型</strong>：元组 <code>(宽度, 高度)</code>，单位为点（1点 = 1/72英寸）。</li>
+<li><strong>示例</strong>：<code>pagesize=(595, 842)</code>（A4纸大小）</li>
+</ul>
+<h3 id="3-pagecompression（可选）"><a href="#3-pagecompression（可选）" class="headerlink" title="3. pagecompression（可选）"></a>3. <code>pagecompression</code>（可选）</h3><ul>
+<li><strong>描述</strong>：是否启用页面内容的压缩。默认是 <code>True</code>，启用压缩。</li>
+<li><strong>类型</strong>：布尔值 (<code>True</code> 或 <code>False</code>)</li>
+<li><strong>示例</strong>：<code>pagecompression=True</code></li>
+</ul>
+<h3 id="4-rotation（可选）"><a href="#4-rotation（可选）" class="headerlink" title="4. rotation（可选）"></a>4. <code>rotation</code>（可选）</h3><ul>
+<li><strong>描述</strong>：设置默认的页面旋转角度（顺时针旋转）。</li>
+<li><strong>类型</strong>：整数（单位：度）</li>
+<li><strong>示例</strong>：<code>rotation=90</code></li>
+</ul>
+<h3 id="5-bottomup（可选）"><a href="#5-bottomup（可选）" class="headerlink" title="5. bottomup（可选）"></a>5. <code>bottomup</code>（可选）</h3><ul>
+<li><strong>描述</strong>：如果设置为 <code>True</code>，页面的原点将在页面的底部而不是顶部。</li>
+<li><strong>类型</strong>：布尔值 (<code>True</code> 或 <code>False</code>)</li>
+<li><strong>示例</strong>：<code>bottomup=True</code></li>
+</ul>
+<h3 id="6-debug（可选）"><a href="#6-debug（可选）" class="headerlink" title="6. debug（可选）"></a>6. <code>debug</code>（可选）</h3><ul>
+<li><strong>描述</strong>：是否启用调试模式，通常用于显示更多的错误信息。</li>
+<li><strong>类型</strong>：布尔值 (<code>True</code> 或 <code>False</code>)</li>
+<li><strong>示例</strong>：<code>debug=True</code></li>
+</ul>
+<h3 id="7-encrypt（可选）"><a href="#7-encrypt（可选）" class="headerlink" title="7. encrypt（可选）"></a>7. <code>encrypt</code>（可选）</h3><ul>
+<li><strong>描述</strong>：是否对 PDF 文件进行加密。通常需要提供 <code>user_pw</code> 和 <code>owner_pw</code> 来设置密码。</li>
+<li><strong>类型</strong>：布尔值 (<code>True</code> 或 <code>False</code>)</li>
+<li><strong>示例</strong>：<code>encrypt=True</code></li>
+</ul>
+<h3 id="8-userpassword（可选）"><a href="#8-userpassword（可选）" class="headerlink" title="8. userpassword（可选）"></a>8. <code>userpassword</code>（可选）</h3><ul>
+<li><strong>描述</strong>：设置用于加密文件的用户密码。</li>
+<li><strong>类型</strong>：字符串</li>
+<li><strong>示例</strong>：<code>userpassword="mypassword"</code></li>
+</ul>
+<h3 id="9-ownerpassword（可选）"><a href="#9-ownerpassword（可选）" class="headerlink" title="9. ownerpassword（可选）"></a>9. <code>ownerpassword</code>（可选）</h3><ul>
+<li><strong>描述</strong>：设置用于加密文件的所有者密码。</li>
+<li><strong>类型</strong>：字符串</li>
+<li><strong>示例</strong>：<code>ownerpassword="ownerpassword"</code></li>
+</ul>
+<h3 id="10-allowPrinting（可选）"><a href="#10-allowPrinting（可选）" class="headerlink" title="10. allowPrinting（可选）"></a>10. <code>allowPrinting</code>（可选）</h3><ul>
+<li><strong>描述</strong>：设置是否允许打印加密的 PDF 文件。默认为 <code>True</code>。</li>
+<li><strong>类型</strong>：布尔值 (<code>True</code> 或 <code>False</code>)</li>
+<li><strong>示例</strong>：<code>allowPrinting=True</code></li>
+</ul>
+<h3 id="11-allowCopying（可选）"><a href="#11-allowCopying（可选）" class="headerlink" title="11. allowCopying（可选）"></a>11. <code>allowCopying</code>（可选）</h3><ul>
+<li><strong>描述</strong>：设置是否允许复制文件内容。默认为 <code>True</code>。</li>
+<li><strong>类型</strong>：布尔值 (<code>True</code> 或 <code>False</code>)</li>
+<li><strong>示例</strong>：<code>allowCopying=False</code></li>
+</ul>
+<h3 id="12-autoPageSize（可选）"><a href="#12-autoPageSize（可选）" class="headerlink" title="12. autoPageSize（可选）"></a>12. <code>autoPageSize</code>（可选）</h3><ul>
+<li><strong>描述</strong>：是否自动调整页面大小。默认是 <code>True</code>，自动调整。</li>
+<li><strong>类型</strong>：布尔值 (<code>True</code> 或 <code>False</code>)</li>
+<li><strong>示例</strong>：<code>autoPageSize=False</code></li>
+</ul>
+</li>
+</ul>
+<h1 id="Pymupdf-show-pdf-page"><a href="#Pymupdf-show-pdf-page" class="headerlink" title="Pymupdf show_pdf_page"></a>Pymupdf show_pdf_page</h1><p><code>show_pdf_page</code> 是 PyMuPDF 库中的一个方法，用于在当前页面上显示另一个 PDF 页面的内容。这个方法可以将一个页面渲染到另一个页面的指定区域。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show_pdf_page(rect, doc, pageno, clip=None, overlay=False, rotation=0)</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="参数说明："><a href="#参数说明：" class="headerlink" title="参数说明："></a>参数说明：</h3><ol>
+<li><strong>rect</strong> (<code>Rect</code> 对象):<br>这是目标页面中用来放置 PDF 页面内容的矩形区域。<code>rect</code> 定义了目标页面上的显示区域，通常可以通过获取当前页面的 <code>rect</code> 属性来设置。例如，<code>new_page.rect</code> 是一个矩形区域，表示新页面的大小。</li>
+<li><strong>doc</strong> (<code>Document</code> 对象):<br>这是包含要显示页面内容的 PDF 文档对象。你通常会通过 <code>fitz.open("file.pdf")</code> 打开 PDF 文件，获取一个 <code>Document</code> 实例。</li>
+<li><strong>pageno</strong> (<code>int</code>):<br>这是你要从 <code>doc</code> 中提取的页面的页码。页码是从 0 开始的整数，表示你要显示的页面在文档中的位置。例如，<code>pageno=0</code> 表示显示文档中的第一页。</li>
+<li><strong>clip</strong> (<code>Rect</code> 对象, 可选):<br>这是一个可选的矩形区域，用来限制从源页面中提取内容的区域。如果未提供，默认情况下将显示整个页面内容。使用 <code>clip</code> 参数可以选择只显示源页面的一部分。</li>
+<li><strong>overlay</strong> (<code>bool</code>, 可选):<br>这是一个布尔值，决定是否将目标页面内容覆盖现有内容。如果 <code>overlay=True</code>，那么显示的页面内容会直接覆盖在目标页面已有内容上。如果 <code>overlay=False</code>，则内容会被绘制在目标页面的指定区域，但不会覆盖现有的内容。默认值是 <code>False</code>。</li>
+<li><strong>rotation</strong> (<code>int</code>, 可选):<br>这是一个整数，表示渲染时对源页面进行的旋转角度。旋转角度的单位是度（degree），可以为 0、90、180 或 270 度。默认值是 0，表示不进行旋转。</li>
+</ol>
+
                 
             </div>
             <hr/>
@@ -533,7 +613,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://Zzcoded.github.io/2025/03/20/wen-jian-chu-li-xiang-mu/wen-jian-chu-li-3-20/">http://Zzcoded.github.io/2025/03/20/wen-jian-chu-li-xiang-mu/wen-jian-chu-li-3-20/</a>
+                    <a href="http://Zzcoded.github.io/2025/02/23/wen-jian-chu-li-xiang-mu/wen-jian-chu-li-2-23/">http://Zzcoded.github.io/2025/02/23/wen-jian-chu-li-xiang-mu/wen-jian-chu-li-2-23/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -571,12 +651,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Pillow/">
-                                    <span class="chip bg-color">Pillow</span>
-                                </a>
-                            
-                                <a href="/tags/PyDub/">
-                                    <span class="chip bg-color">PyDub</span>
+                                <a href="/tags/%E2%80%94-canvas-show-pdf-page/">
+                                    <span class="chip bg-color">— canvas - show_pdf_page</span>
                                 </a>
                             
                         </div>
@@ -1013,13 +1089,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2025/03/21/wen-jian-chu-li-xiang-mu/wen-jian-chu-li-3-21/">
+                <a href="/2025/02/24/wen-jian-chu-li-xiang-mu/wen-jian-chu-li-2-24/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="文件处理3-21">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="文件处理2.24">
                         
-                        <span class="card-title">文件处理3-21</span>
+                        <span class="card-title">文件处理2.24</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1030,7 +1106,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2025-03-21
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-02-24
                         </span>
                         <span class="publish-author">
                             
@@ -1047,8 +1123,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ffmpeg/">
-                        <span class="chip bg-color">ffmpeg</span>
+                    <a href="/tags/pymupdf/">
+                        <span class="chip bg-color">pymupdf</span>
                     </a>
                     
                 </div>
@@ -1062,13 +1138,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2025/03/19/wen-jian-chu-li-xiang-mu/wen-jian-chu-li-3-19/">
+                <a href="/2025/01/21/daemon-json-de-zuo-yong/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="文件处理3-19">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="daemon.json的作用">
                         
-                        <span class="card-title">文件处理3-19</span>
+                        <span class="card-title">daemon.json的作用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1079,27 +1155,15 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-03-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-01-21
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/" class="post-category">
-                                    文件处理
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Zzcat
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/argparser/">
-                        <span class="chip bg-color">argparser</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -1291,7 +1355,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">37.9k</span>&nbsp;字
+                class="white-color">39.4k</span>&nbsp;字
             
             
             

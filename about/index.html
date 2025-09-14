@@ -380,7 +380,7 @@
 
 
 <div class="statis">
-    <span class="count"><a href="/tags">40</a></span>
+    <span class="count"><a href="/tags">42</a></span>
     <span class="name">标签</span>
 </div>
 
@@ -410,7 +410,7 @@
 
 
 <div class="statis">
-    <span class="count"><a href="/tags">40</a></span>
+    <span class="count"><a href="/tags">42</a></span>
     <span class="name">标签</span>
 </div>
 
@@ -536,7 +536,7 @@
         },
         xAxis: {
             type: 'category',
-            data: ["2024-03","2024-04","2024-05","2024-06","2024-07","2024-08","2024-09","2024-10","2024-11","2024-12","2025-01","2025-02","2025-03"]
+            data: ["2024-09","2024-10","2024-11","2024-12","2025-01","2025-02","2025-03","2025-04","2025-05","2025-06","2025-07","2025-08","2025-09"]
         },
         yAxis: {
             type: 'value',
@@ -546,7 +546,7 @@
                 name: '文章篇数',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [0,0,0,1,1,0,0,1,1,5,1,4,15],
+                data: [0,1,1,5,1,5,13,0,0,0,0,0,1],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a','#3ecf8e','#82d3f4'],
@@ -588,7 +588,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"经历","value":2},{"name":"CentOS7","value":1},{"name":"计算机视觉","value":1},{"name":"Docker","value":3},{"name":"Qt","value":1},{"name":"环境配置","value":1},{"name":"Go","value":1},{"name":"k8s","value":1},{"name":"Centos","value":1},{"name":"文件处理","value":7},{"name":"MySql","value":1},{"name":"yolov","value":1},{"name":"Gin","value":1},{"name":"文件处理项目","value":1},{"name":"TcpSocket","value":1}],
+                data: [{"name":"CentOS7","value":1},{"name":"经历","value":2},{"name":"简历","value":1},{"name":"计算机视觉","value":1},{"name":"Qt","value":1},{"name":"Docker","value":3},{"name":"Go","value":1},{"name":"Centos","value":1},{"name":"环境配置","value":1},{"name":"k8s","value":1},{"name":"MySql","value":1},{"name":"文件处理","value":17},{"name":"Gin","value":1},{"name":"yolov","value":1},{"name":"TcpSocket","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -612,7 +612,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["Docker","inkscape","经历","蓝桥杯","vault镜像源","计算机视觉","环境配置","yolov","Qt","MySql"]
+                data: ["Docker","ffmpeg","inkscape","pymupdf","vault镜像源","经历","蓝桥杯","计算机视觉","环境配置","yolov"]
             }
         ],
         yAxis: [
@@ -625,7 +625,7 @@
                 type: 'bar',
                 color: ['#82d3f4'],
                 barWidth : 18,
-                data: [3,2,1,1,1,1,1,1,1,1],
+                data: [3,2,2,2,1,1,1,1,1,1],
                 markPoint: {
                     symbolSize: 45,
                     data: [{
@@ -795,6 +795,12 @@
         <div class="tag-chips center-align">
             
             
+            <a href="/tags/vault%E9%95%9C%E5%83%8F%E6%BA%90/">
+                <span class="chip center-align waves-effect waves-light chip-default">vault镜像源</span>
+            </a>
+            
+            
+            
             <a href="/tags/%E7%BB%8F%E5%8E%86/">
                 <span class="chip center-align waves-effect waves-light chip-default">经历</span>
             </a>
@@ -803,12 +809,6 @@
             
             <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/">
                 <span class="chip center-align waves-effect waves-light chip-default">蓝桥杯</span>
-            </a>
-            
-            
-            
-            <a href="/tags/vault%E9%95%9C%E5%83%8F%E6%BA%90/">
-                <span class="chip center-align waves-effect waves-light chip-default">vault镜像源</span>
             </a>
             
             
@@ -831,8 +831,8 @@
             
             
             
-            <a href="/tags/Docker/">
-                <span class="chip center-align waves-effect waves-light chip-default">Docker</span>
+            <a href="/tags/%E7%AE%80%E5%8E%86/">
+                <span class="chip center-align waves-effect waves-light chip-default">简历</span>
             </a>
             
             
@@ -855,6 +855,12 @@
             
             
             
+            <a href="/tags/Docker/">
+                <span class="chip center-align waves-effect waves-light chip-default">Docker</span>
+            </a>
+            
+            
+            
             <a href="/tags/Go/">
                 <span class="chip center-align waves-effect waves-light chip-default">Go</span>
             </a>
@@ -873,12 +879,6 @@
             
             
             
-            <a href="/tags/k8s/">
-                <span class="chip center-align waves-effect waves-light chip-default">k8s</span>
-            </a>
-            
-            
-            
             <a href="/tags/Centos/">
                 <span class="chip center-align waves-effect waves-light chip-default">Centos</span>
             </a>
@@ -887,6 +887,24 @@
             
             <a href="/tags/%E9%85%8D%E7%BD%AEIp%E5%9C%B0%E5%9D%80/">
                 <span class="chip center-align waves-effect waves-light chip-default">配置Ip地址</span>
+            </a>
+            
+            
+            
+            <a href="/tags/k8s/">
+                <span class="chip center-align waves-effect waves-light chip-default">k8s</span>
+            </a>
+            
+            
+            
+            <a href="/tags/pillow/">
+                <span class="chip center-align waves-effect waves-light chip-default">pillow</span>
+            </a>
+            
+            
+            
+            <a href="/tags/ffmpeg/">
+                <span class="chip center-align waves-effect waves-light chip-default">ffmpeg</span>
             </a>
             
             
@@ -909,20 +927,14 @@
             
             
             
-            <a href="/tags/Golang/">
-                <span class="chip center-align waves-effect waves-light chip-default">Golang</span>
+            <a href="/tags/%E2%80%94-canvas-show-pdf-page/">
+                <span class="chip center-align waves-effect waves-light chip-default">— canvas - show_pdf_page</span>
             </a>
             
             
             
-            <a href="/tags/os-exec/">
-                <span class="chip center-align waves-effect waves-light chip-default">os/exec</span>
-            </a>
-            
-            
-            
-            <a href="/tags/go-python/">
-                <span class="chip center-align waves-effect waves-light chip-default">go-python</span>
+            <a href="/tags/pymupdf/">
+                <span class="chip center-align waves-effect waves-light chip-default">pymupdf</span>
             </a>
             
             
@@ -957,56 +969,26 @@
             
             
             
-            <a href="/tags/go-layout/">
-                <span class="chip center-align waves-effect waves-light chip-default">go layout</span>
-            </a>
-            
-            
-            
-            <a href="/tags/%E6%8E%A5%E5%8F%A3%E4%BD%9C%E7%94%A8/">
-                <span class="chip center-align waves-effect waves-light chip-default">接口作用</span>
-            </a>
-            
-            
-            
-            <a href="/tags/Gin%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">
-                <span class="chip center-align waves-effect waves-light chip-default">Gin生命周期</span>
-            </a>
-            
-            
-            
-            <a href="/tags/Pillow/">
-                <span class="chip center-align waves-effect waves-light chip-default">Pillow</span>
-            </a>
-            
-            
-            
-            <a href="/tags/PyDub/">
-                <span class="chip center-align waves-effect waves-light chip-default">PyDub</span>
-            </a>
-            
-            
-            
             <a href="/tags/argparser/">
                 <span class="chip center-align waves-effect waves-light chip-default">argparser</span>
             </a>
             
             
             
-            <a href="/tags/pillow/">
-                <span class="chip center-align waves-effect waves-light chip-default">pillow</span>
+            <a href="/tags/go-layout/">
+                <span class="chip center-align waves-effect waves-light chip-default">go layout</span>
             </a>
             
             
             
-            <a href="/tags/ffmpeg/">
-                <span class="chip center-align waves-effect waves-light chip-default">ffmpeg</span>
+            <a href="/tags/interface/">
+                <span class="chip center-align waves-effect waves-light chip-default">interface</span>
             </a>
             
             
             
-            <a href="/tags/%E7%9F%A2%E9%87%8F%E5%9B%BE%E5%83%8F%E7%9A%84%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/">
-                <span class="chip center-align waves-effect waves-light chip-default">矢量图像的相互转换</span>
+            <a href="/tags/Gin%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">
+                <span class="chip center-align waves-effect waves-light chip-default">Gin生命周期</span>
             </a>
             
             
@@ -1029,8 +1011,38 @@
             
             
             
+            <a href="/tags/%E7%9F%A2%E9%87%8F%E5%9B%BE%E5%83%8F%E7%9A%84%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/">
+                <span class="chip center-align waves-effect waves-light chip-default">矢量图像的相互转换</span>
+            </a>
+            
+            
+            
             <a href="/tags/gin/">
                 <span class="chip center-align waves-effect waves-light chip-default">gin</span>
+            </a>
+            
+            
+            
+            <a href="/tags/Golang/">
+                <span class="chip center-align waves-effect waves-light chip-default">Golang</span>
+            </a>
+            
+            
+            
+            <a href="/tags/os-exec/">
+                <span class="chip center-align waves-effect waves-light chip-default">os/exec</span>
+            </a>
+            
+            
+            
+            <a href="/tags/go-python/">
+                <span class="chip center-align waves-effect waves-light chip-default">go-python</span>
+            </a>
+            
+            
+            
+            <a href="/tags/interface%E7%94%A8%E6%B3%95/">
+                <span class="chip center-align waves-effect waves-light chip-default">interface用法</span>
             </a>
             
             
@@ -1152,7 +1164,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">37.9k</span>&nbsp;字
+                class="white-color">39.4k</span>&nbsp;字
             
             
             
